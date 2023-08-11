@@ -28,3 +28,8 @@ Then simply use stow to install the dotfiles you want to use:
     cd ~/.dotfiles
     stow vim
     stow tmux
+
+Acknowledgments
+---------------
+
+This dotfiles repo is inspired by the [Ham Vocke dotfile repo](https://github.com/hamvocke/dotfiles)
