@@ -1,0 +1,7 @@
+inherit_from: ~/work/shellzilla/standards/.rubocop.yml
+
+Style/RescueStandardError:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false

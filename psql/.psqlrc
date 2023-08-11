@@ -1,0 +1,6 @@
+SET time zone 'UTC';
+\pset pager
+\pset null <NULL>
+\set COMP_KEYWORD_CASE upper
+\x auto
+\set cld 'pt509788734_c459'

@@ -1,0 +1,38 @@
+[user]
+	name = Tiago Dias
+	email = tiago.dias@cldware.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[merge]
+	tool = opendiff
+	summary = true
+[core]
+	excludesfile = ~/.gitignore
+	quotepath = false
+	autocrlf = false
+	safecrlf = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[commit]
+	template = ~/.stCommitMsg
+[gitflow "hotfix.finish"]
+	message = Hotfix %tag%
+[gitflow "release.finish"]
+	message = Release %tag%
+[alias]
+  wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
+[pull]
+	rebase = false
