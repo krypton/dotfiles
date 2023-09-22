@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
@@ -11,16 +18,21 @@ export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-epaper/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/submit-job/bin"
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 
+export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 export INSTALLATION_SCRIPTS_PATH="$HOME/work/installation-scripts"
 
+# Use tmux always
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session }
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="cloud"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,7 +92,7 @@ ZSH_THEME="cloud"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-flow-avh git-prompt rbenv)
+plugins=(git git-flow git-flow-avh git-prompt rbenv zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,7 +108,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Set environment variable for homebrew access to GitHub
@@ -125,12 +137,6 @@ export SHELLZILLA_PATH="$HOME/work/shellzilla"
 export USER_SHELLFILE="$SHELLZILLA_PATH/users/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
-ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX=")"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
-PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[green]%}%p %{$fg[green]%}%c %{$fg_bold[cyan]%}$(git_super_status)%{$fg_bold[blue]%} % %{$reset_color%}'
-RPROMPT=''
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -140,11 +146,15 @@ RPROMPT=''
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"source ~/.profile
 eval "$(rbenv init - zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 source ~/work/deployer/deployer.sh
+
+# 1password CLI completion
+eval "$(op completion zsh)"; compdef _op op
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

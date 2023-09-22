@@ -45,7 +45,7 @@ export CR_PAT=1e3ade82ce3574288e145f2fed2d89e9bf06f032
 test -e "$HOME/.iterm2_shell_integration.bash" && . "$HOME/.iterm2_shell_integration.bash"
 
 # shell_helper options
-export SHELL_HELPER_PATH="$HOME/work/shell-helper"
+export SHELL_HELPER_PATH="$HOME/work/shellzilla"
 export USER_SHELLFILE="$SHELL_HELPER_PATH/users/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
@@ -85,16 +85,5 @@ fi
 
 eval "$(rbenv init -)"
 
-# --httptoolkit--
-# This section will be reset each time a HTTP Toolkit terminal is opened
-if [ -n "$HTTP_TOOLKIT_ACTIVE" ]; then
-    # When HTTP Toolkit is active, we inject various overrides into PATH
-    export PATH="/Applications/HTTP Toolkit.app/Contents/Resources/app/httptoolkit-server/overrides/path:$PATH"
-
-    if command -v winpty >/dev/null 2>&1; then
-        # Work around for winpty's hijacking of certain commands
-        alias php=php
-        alias node=node
-    fi
-fi
-# --httptoolkit-end--
+# 1password CLI completion
+source <(op completion bash)
