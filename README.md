@@ -29,6 +29,11 @@ Then simply use stow to install the dotfiles you want to use:
     stow vim
     stow tmux
 
+### How to stow NVIM configuration
+Simply stow into ~/.config folder, as follows:
+
+    stow -t ~/.config nvim
+
 Acknowledgments
 ---------------
 
