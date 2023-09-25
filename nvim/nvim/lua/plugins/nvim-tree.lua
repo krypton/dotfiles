@@ -13,36 +13,24 @@ local function my_on_attach(bufnr)
    vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
 end
 
-return {
-   {
-      "nvim-tree/nvim-tree.lua",
-      version = "*",
-      lazy = false,
-      dependencies = {
-         "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-         require("nvim-tree").setup {
-            on_attach = my_on_attach,
-            update_focused_file = {
-               enable = true,
-               update_cwd = true,
-            },
-            diagnostics = {
-               enable = true,
-               show_on_dirs = true,
-               icons = {
-                  hint = "",
-                  info = "",
-                  warning = "",
-                  error = "",
-               },
-            },
-            view = {
-               width = 30,
-               side = "left",
-           },
-         }
-      end,
+require("nvim-tree").setup({
+   on_attach = my_on_attach,
+   update_focused_file = {
+      enable = true,
+      update_cwd = true,
    },
-}
+   diagnostics = {
+      enable = true,
+      show_on_dirs = true,
+      icons = {
+         hint = "",
+         info = "",
+         warning = "",
+         error = "",
+      },
+   },
+   view = {
+      width = 30,
+      side = "left",
+   },
+})

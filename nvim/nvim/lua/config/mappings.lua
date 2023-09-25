@@ -41,6 +41,14 @@ map("n", "<C-j>", "<C-w>j", {})
 map("n", "<C-h>", "<C-w>h", {})
 map("n", "<C-l>", "<C-w>l", {})
 map("n", "<C-c>", "<C-w>c", {})
+map("n", "<C-b>", "<C-w>s", {})
+map("n", "<C-s>", "<C-w>v", {})
 
--- nvim tree toggle
+-- nvim-tree toggle
 map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+
+-- neogit toggle
+map("n", "<Leader>g", ":Neogit<CR>", {})
+
+-- no-neck-pain
+map("n", "<Leader>n", ":NoNeckPain<CR>", {})
