@@ -44,6 +44,9 @@ map("n", "<C-c>", "<C-w>c", {})
 map("n", "<C-b>", "<C-w>s", {})
 map("n", "<C-s>", "<C-w>v", {})
 
+map("n", "<Leader>bn", ":BufferLineCycleNext<CR>", {})
+map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
+
 -- nvim-tree toggle
 map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
 
