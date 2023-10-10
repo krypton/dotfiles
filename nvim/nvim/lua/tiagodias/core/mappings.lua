@@ -23,7 +23,6 @@ map("n", "<C-b>", "<C-b>zz", {})
 map("n", "<C-f>", "<C-f>zz", {})
 
 -- leader movements
-map("n", "<Leader>w", ":write<CR>", {})
 map("n", "<Leader>s", ":source %<CR>", {})
 map("n", "<Leader>v", ":cd ~/.config/nvim/<CR>:Telescope find_files<CR>", {})
 map("n", "<Leader>m", ":make<CR>", {})
