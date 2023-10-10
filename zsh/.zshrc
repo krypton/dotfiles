@@ -16,7 +16,7 @@ export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nb-xattr/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-broker/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-epaper/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/submit-job/bin"
-export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
+# export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 
@@ -26,7 +26,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export INSTALLATION_SCRIPTS_PATH="$HOME/work/installation-scripts"
 
 # Use tmux always
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session }
+# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session }
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
