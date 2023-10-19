@@ -42,6 +42,12 @@ Simply stow into ~/.config folder, as follows:
     stow -t ~/.config yabai
     stow -t ~/.config skhd
 
+### How to stow bat configuration
+
+Simply stow into ~/.config folder, as follows:
+
+    stow -t ~/.config bat
+
 ## Acknowledgments
 
 This dotfiles repo is inspired by the [Ham Vocke dotfile repo](https://github.com/hamvocke/dotfiles)
