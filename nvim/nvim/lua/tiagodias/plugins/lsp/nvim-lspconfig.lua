@@ -27,6 +27,9 @@ return {
 			opts.buffer = bufnr
 
 			-- set keybinds
+			opts.desc = "Show document symbols"
+			keymap.set("n", "gS", "<cmd>Telescope lsp_document_symbols<CR>", opts) -- show document symbols
+
 			opts.desc = "Show LSP references"
 			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
