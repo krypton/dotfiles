@@ -11,20 +11,14 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/postgresql/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/redis/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/beanstalkd/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nb-xattr/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-broker/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-epaper/bin"
-export PATH="$PATH:/Applications/casper.app/Contents/MacOS/submit-job/bin"
+
+export LC_GIT_AUTHOR_NAME=$(git config --global user.name)
+export LC_GIT_AUTHOR_EMAIL=$(git config --global user.email)
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-export INSTALLATION_SCRIPTS_PATH="$HOME/work/installation-scripts"
 
 # Use tmux always
 # [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session }
@@ -121,20 +115,8 @@ export GREP_OPTIONS="--color=auto"
 # Ansible config
 export ANSIBLE_CONFIG="/usr/local/etc/ansible"
 
-# Github repo tokens and invite or remove user examples
-# cd casper-packager
-# bash github-invite.sh -a add -u <user> -s github-defs/<account>.inc.sh
-export CASPER2020_GITHUB_ACCESS_TOKEN="85fbbbb4298f5e1200b15a461df1a5697edd8051"
-export INOCE1E_GITHUB_ACCESS_TOKEN="e442dcca74303cd0ed75fa472740198dba8833dc"
-export VPFPINHO_GITHUB_ACCESS_TOKEN="5642e38e7683e452ea4af2352a78eb822364c055"
-export CLOUDWARE_DEPLOY_GITHUB_ACCESS_TOKEN="5c2cf95cc6ff001763db29efba84ea4570b4773d"
-
-export CR_PAT=1e3ade82ce3574288e145f2fed2d89e9bf06f032
-
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
-# shell_helper options
-export SHELLZILLA_PATH="$HOME/work/shellzilla"
 export USER_SHELLFILE="$HOME/.dotfiles/work/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
@@ -152,10 +134,13 @@ eval "$(rbenv init - zsh)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source ~/work/deployer/deployer.sh
 
 # 1password CLI completion
 eval "$(op completion zsh)"; compdef _op op
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+source ~/work/deployer/deployer.sh

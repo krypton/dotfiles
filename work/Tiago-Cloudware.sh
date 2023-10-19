@@ -1,14 +1,19 @@
 #!/bin/zsh
-export DEPLOY_MACHINE='CWBSTG'
-export LC_GIT_AUTHOR_NAME=$(git config --global user.name)
-export LC_GIT_AUTHOR_EMAIL=$(git config --global user.email)
-export CONFZILLA_FEEDER="${HOME}/work/confzilla-cloudware"
-export SHELL_HELPER_PATH="${HOME}/work/shellzilla"
-source "$SHELLZILLA_PATH/helper.sh"
-# your github user token :: if you wish to use github_release from shell
-GITHUB_USER_TOKEN='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'
-# your stuff
 
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/postgresql/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/redis/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/beanstalkd/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nb-xattr/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-broker/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-epaper/bin"
+export PATH="$PATH:/Applications/casper.app/Contents/MacOS/submit-job/bin"
+
+export INSTALLATION_SCRIPTS_PATH="$HOME/work/installation-scripts"
+
+export DEPLOY_MACHINE='CWBSTG'
+export CONFZILLA_FEEDER="${HOME}/work/confzilla-cloudware"
+export SHELLZILLA_PATH="$HOME/work/shellzilla"
+source "$SHELLZILLA_PATH/helper.sh"
 
 alias pdev="psql -Utoconline -dtoconline"
 alias pcdb="psql -Utoconline -dcdb"
