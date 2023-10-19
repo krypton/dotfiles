@@ -37,7 +37,7 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
-				"rubocop", -- ruby formatter and linter
+				-- "rubocop", -- ruby formatter and linter
 			},
 		})
 	end,

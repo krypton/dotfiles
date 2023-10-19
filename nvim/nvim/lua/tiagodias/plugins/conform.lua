@@ -15,7 +15,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				ruby = { "rubocop" },
+				-- ruby = { "rubocop" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -38,5 +38,6 @@ return {
 		-- require("conform.formatters.rubocop").env = {
 		-- 	BUNDLE_GEMFILE = "/Users/tiagodias/work/.ruby-lsp/Gemfile",
 		-- }
+		-- require("conform.formatters.rubocop").command = "/Users/tiagodias/.local/share/nvim/mason/bin/rubocop"
 	end,
 }

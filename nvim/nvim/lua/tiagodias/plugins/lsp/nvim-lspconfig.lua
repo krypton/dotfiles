@@ -185,7 +185,7 @@ return {
 			cmd_env = { BUNDLE_GEMFILE = "/Users/tiagodias/work/.ruby-lsp/Gemfile" },
 			cmd = { "ruby-lsp" },
 			init_options = {
-				formatter = "none",
+				formatter = "rubocop",
 			},
 		})
 	end,
