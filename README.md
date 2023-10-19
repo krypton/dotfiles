@@ -42,6 +42,12 @@ Simply stow into ~/.config folder, as follows:
     stow -t ~/.config yabai
     stow -t ~/.config skhd
 
+### How to stow kitty configuration
+
+Simply stow into ~/.config folder, as follows:
+
+    stow -t ~/.config kitty
+
 ### How to stow bat configuration
 
 Simply stow into ~/.config folder, as follows:
