@@ -16,7 +16,6 @@ export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nb-xattr/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-broker/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/nginx-epaper/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/submit-job/bin"
-# export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 
@@ -134,7 +133,7 @@ export CR_PAT=1e3ade82ce3574288e145f2fed2d89e9bf06f032
 
 # shell_helper options
 export SHELLZILLA_PATH="$HOME/work/shellzilla"
-export USER_SHELLFILE="$SHELLZILLA_PATH/users/Tiago-Cloudware.sh"
+export USER_SHELLFILE="$HOME/.dotfiles/work/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
 # Compilation flags

@@ -3,6 +3,8 @@ umask 0002 # Make everything group writable
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/postgresql/bin"
@@ -46,7 +48,7 @@ test -e "$HOME/.iterm2_shell_integration.bash" && . "$HOME/.iterm2_shell_integra
 
 # shell_helper options
 export SHELL_HELPER_PATH="$HOME/work/shellzilla"
-export USER_SHELLFILE="$SHELL_HELPER_PATH/users/Tiago-Cloudware.sh"
+export USER_SHELLFILE="$HOME/.dotfiles/work/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
 # Add bash completions installed by homebrew

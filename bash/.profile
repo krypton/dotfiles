@@ -1,8 +1,4 @@
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
-# shell_helper options
-export SHELL_HELPER_PATH="$HOME/work/shellzilla"
-export USER_SHELLFILE="$SHELL_HELPER_PATH/users/Tiago-Cloudware.sh"
-. $USER_SHELLFILE
 
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/postgresql/bin"
 export PATH="$PATH:/Applications/casper.app/Contents/MacOS/redis/bin"
