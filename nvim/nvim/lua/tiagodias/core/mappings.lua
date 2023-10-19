@@ -48,6 +48,3 @@ map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
 
 -- nvim-tree toggle
 map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
-
--- neogit toggle
-map("n", "<Leader>g", ":Neogit<CR>", {})
