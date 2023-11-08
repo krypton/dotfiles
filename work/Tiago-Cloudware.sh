@@ -30,29 +30,31 @@ rrbundle() {
 aggregate_procfiles() {
   : > ~/work/Procfile.dev
   local folders=(
-    "$HOME/work/cloudware-business/jobs/ruby2"
     "$HOME/work/cloudware-business/jobs/ruby3"
     "$HOME/work/cloudware-business/jobs/jruby"
     "$HOME/work/cloudware-central-db/jobs"
   )
   for dir in "${folders[@]}"; do
+    echo $dir
+    if [[ "$dir" == *"/jruby"* ]]; then
+      cd $dir && rbenv shell jruby-9.3.10.0 && sdk use java 8.0.372-zulu && bundle && rbenv shell --unset
+      continue
+    fi
+    if [[ "$dir" == *"/cloudware-central-db"* ]]; then
+      cd $dir && cd ../ && bundle
+    fi
+    cd $dir && bundle
+  done
+  for dir in "${folders[@]}"; do
     if [ -f "$dir/Procfile" ]; then
       while IFS= read -r line; do
         local prefix="cd $dir &&"
         if [[ "$dir" == *"/jruby"* ]]; then
-          prefix="eval \"\$(rbenv init - sh)\" && cd $dir && sdk use java 8.0.372-zulu && rbenv shell jruby-9.3.10.0 && bundle --jobs=9 &&"
+          prefix="eval \"\$(rbenv init - sh)\" && cd $dir && rbenv shell jruby-9.3.10.0 &&"
         fi
 
-        if [[ "$dir" == *"/ruby2"* ]]; then
-          prefix="eval \"\$(rbenv init - sh)\" && cd $dir && rbenv shell 2.7.6 &&"
-        fi
-
-        if [[ "$dir" == *"/ruby3"* ]]; then
-          prefix="eval \"\$(rbenv init - sh)\" && cd $dir && rbenv shell 3.2.1 &&"
-        fi
-
-        if [[ "$line" == *"jobs"* ]]; then
-          line="${line/bundle/bundle --jobs=9 && bundle}"
+        if [[ "$line" == *"job"* ]]; then
+          line="${line}"
         fi
 
         echo "${line/:/: $prefix}" >> ~/work/Procfile.dev
@@ -61,9 +63,45 @@ aggregate_procfiles() {
     fi
   done
   # add rails
-  echo -e "rails: eval \"\$(rbenv init - sh)\" && cd ~/work/cloudware-business && rbenv shell 2.1.5 && rrbundle && rails s" >> ~/work/Procfile.dev
+  echo -e "rails: eval \"\$(rbenv init - sh)\" && cd ~/work/cloudware-business && rbenv shell 2.1.5 && bundle --jobs=9 && bundle exec rails s" >> ~/work/Procfile.dev
   # add aurora
   echo -e "aurora: cd ~/work && aurora" >> ~/work/Procfile.dev
+}
+
+start_dev_r3() {
+    open /Applications/casper.app
+    wait_for_postgres
+
+    # If a session named development already exists, attach to it
+    if tmux has-session -t "development" 2>/dev/null; then
+        if [ -n "$TMUX" ]; then
+            tmux switch-client -t "development"
+        else
+            tmux attach-session -t "development"
+        fi
+        return
+    fi
+
+    # Now, create a new session
+    tmux new-session -d -s "development"
+
+    tmux send-keys -t "development" "cd ~/work/cloudware-business && rbenv shell 2.1.5 && rrbundle && rails s" C-m
+
+    tmux split-window -v -t "development"
+    tmux send-keys -t "development" "cd ~/work/cloudware-business/jobs/ruby3 && rbenv shell 3.2.1 && bundle && overmind s" C-m
+
+    tmux split-window -v -t "development"
+    tmux send-keys -t "development" "cd ~/work/cloudware-business/jobs/jruby && sdk use java 8.0.372-zulu && rbenv shell jruby-9.3.10.0 && bundle --jobs=9 && overmind s" C-m
+
+    tmux select-pane -t "development:1.4"
+    tmux split-window -h -t "development"
+    tmux send-keys -t "development" "cd ~/work/cloudware-central-db && rbenv shell 3.2.1 && bundle && overmind s -f jobs/Procfile" C-m
+
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t "development"
+    else
+        tmux attach-session -t "development"
+    fi
 }
 
 start_dev() {
@@ -97,7 +135,7 @@ start_dev() {
 
     tmux select-pane -t "development:1.4"
     tmux split-window -h -t "development"
-    tmux send-keys -t "development" "cd ~/work/cloudware-central-db && rbenv shell 2.7.6 && bundle && overmind s -f jobs/Procfile" C-m
+    tmux send-keys -t "development" "cd ~/work/cloudware-central-db && rbenv shell 3.2.1 && bundle && overmind s -f jobs/Procfile" C-m
 
     if [ -n "$TMUX" ]; then
         tmux switch-client -t "development"

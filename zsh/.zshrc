@@ -87,7 +87,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-flow-avh git-prompt rbenv zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git git-flow git-flow-avh git-prompt rbenv zsh-autosuggestions zsh-syntax-highlighting zsh-overmind-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,7 +117,7 @@ export ANSIBLE_CONFIG="/usr/local/etc/ansible"
 
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
-export USER_SHELLFILE="$HOME/.dotfiles/work/Tiago-Cloudware.sh"
+export USER_SHELLFILE="$HOME/personal/.dotfiles/work/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
 # Compilation flags

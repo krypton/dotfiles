@@ -39,7 +39,7 @@ export ANSIBLE_CONFIG="/usr/local/etc/ansible"
 test -e "$HOME/.iterm2_shell_integration.bash" && . "$HOME/.iterm2_shell_integration.bash"
 
 # shell_helper options
-export USER_SHELLFILE="$HOME/.dotfiles/work/Tiago-Cloudware.sh"
+export USER_SHELLFILE="$HOME/personal/.dotfiles/work/Tiago-Cloudware.sh"
 . $USER_SHELLFILE
 
 # Add bash completions installed by homebrew
@@ -75,3 +75,7 @@ source <(op completion bash)
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
