@@ -45,7 +45,7 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
 	sidescrolloff = 8, -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
-	guifont = "MesloLGS NF:h13", -- the font used in graphical neovim applications
+	guifont = "Monaspace Neon:h13", -- the font used in graphical neovim applications, this does not affect neovim running inside terminal
 	linebreak = true,
 	fileformat = "unix",
 }
