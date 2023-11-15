@@ -29,6 +29,7 @@ return {
 				"html",
 				"tsserver",
 				"ruby_ls",
+				"gopls",
 			},
 		})
 

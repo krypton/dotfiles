@@ -13,7 +13,7 @@ return {
 			local treesitter = require("nvim-treesitter.configs")
 
 			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
+			treesitter.setup({
 				auto_install = true,
 				highlight = {
 					enable = true,
@@ -37,6 +37,7 @@ return {
 					"vimdoc",
 					"gitignore",
 					"ruby",
+					"go",
 				},
 				incremental_selection = {
 					enable = true,
