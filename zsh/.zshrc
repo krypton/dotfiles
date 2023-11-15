@@ -138,9 +138,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # 1password CLI completion
 eval "$(op completion zsh)"; compdef _op op
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 source ~/work/deployer/deployer.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
