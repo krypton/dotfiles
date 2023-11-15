@@ -63,7 +63,7 @@ aggregate_procfiles() {
     fi
   done
   # add rails
-  echo -e "rails: eval \"\$(rbenv init - sh)\" && cd ~/work/cloudware-business && rbenv shell 2.1.5 && bundle --jobs=9 && bundle exec rails s" >> ~/work/Procfile.dev
+  echo -e "rails: eval \"\$(rbenv init - sh)\" && source $USER_SHELLFILE && cd ~/work/cloudware-business && rbenv shell 2.1.5 && rrbundle && bundle exec rails s" >> ~/work/Procfile.dev
   # add aurora
   echo -e "aurora: cd ~/work && aurora" >> ~/work/Procfile.dev
 }
