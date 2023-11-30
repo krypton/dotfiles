@@ -38,6 +38,10 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
+				"staticcheck", -- go linter https://staticcheck.dev/ integrates with gopls
+				"delve", -- go debugger https://github.com/go-delve/delve
+				"goimports", -- go auto import or remove import statements https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+				"gofumpt", -- go strictier formatter than gofmt https://github.com/mvdan/gofumpt
 				-- "rubocop", -- ruby formatter and linter
 			},
 		})

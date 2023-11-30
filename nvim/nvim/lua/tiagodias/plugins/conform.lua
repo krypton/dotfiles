@@ -15,6 +15,7 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+				["go"] = { "goimports", "gofumpt" },
 				-- ruby = { "rubocop" },
 			},
 			format_on_save = {

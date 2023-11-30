@@ -42,6 +42,9 @@ return {
 					"gitignore",
 					"ruby",
 					"go",
+					"gomod",
+					"gowork",
+					"gosum",
 				},
 				incremental_selection = {
 					enable = true,
