@@ -7,14 +7,23 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
-				lua = { "stylua" },
+				["javascript"] = { "prettier" },
+				["javascriptreact"] = { "prettier" },
+				["typescript"] = { "prettier" },
+				["typescriptreact"] = { "prettier" },
+				["vue"] = { "prettier" },
+				["css"] = { "prettier" },
+				["scss"] = { "prettier" },
+				["less"] = { "prettier" },
+				["html"] = { "prettier" },
+				["json"] = { "prettier" },
+				["jsonc"] = { "prettier" },
+				["yaml"] = { "prettier" },
+				["markdown"] = { "prettier" },
+				["markdown.mdx"] = { "prettier" },
+				["graphql"] = { "prettier" },
+				["handlebars"] = { "prettier" },
+				["lua"] = { "stylua" },
 				["go"] = { "goimports", "gofumpt" },
 				-- ruby = { "rubocop" },
 			},
@@ -34,11 +43,5 @@ return {
 				timeout_ms = 1000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
-
-		-- Directly change the values on the built-in configuration
-		-- require("conform.formatters.rubocop").env = {
-		-- 	BUNDLE_GEMFILE = "/Users/tiagodias/work/.ruby-lsp/Gemfile",
-		-- }
-		-- require("conform.formatters.rubocop").command = "/Users/tiagodias/.local/share/nvim/mason/bin/rubocop"
 	end,
 }
