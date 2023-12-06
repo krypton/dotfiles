@@ -48,3 +48,4 @@ map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
 
 -- nvim-tree toggle
 map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+map("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>", {})
