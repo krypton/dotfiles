@@ -26,6 +26,7 @@ map("n", "<C-f>", "<C-f>zz", {})
 map("n", "<Leader>s", ":source %<CR>", {})
 map("n", "<Leader>v", ":cd ~/.config/nvim/<CR>:Telescope find_files<CR>", {})
 map("n", "<Leader>m", ":make<CR>", {})
+map("n", "<Leader>pv", ":Ex<CR>", {})
 
 -- system clipboard
 map({ "n", "v" }, "<Leader>y", '"+y', {})
@@ -43,9 +44,11 @@ map("n", "<C-c>", "<C-w>c", {})
 map("n", "<C-b>", "<C-w>s", {})
 map("n", "<C-s>", "<C-w>v", {})
 
-map("n", "<Leader>bn", ":BufferLineCycleNext<CR>", {})
-map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
+-- map("n", "<Leader>bn", ":BufferLineCycleNext<CR>", {})
+-- map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
 
 -- nvim-tree toggle
-map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+-- map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+
 map("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>", {})
+map("n", "<Leader>zz", "<cmd>ZenMode<CR>", {})

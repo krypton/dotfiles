@@ -131,8 +131,9 @@ return {
 		-- lineFoldingOnly = true,
 		-- }
 
+		-- This enables LSP diagnostics to be shown inline
 		vim.diagnostic.config({
-			virtual_text = false,
+			virtual_text = true,
 		})
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
