@@ -107,9 +107,6 @@ else
   export EDITOR='nvim'
 fi
 
-# Set environment variable for homebrew access to GitHub
-export HOMEBREW_GITHUB_API_TOKEN="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"
-
 # Tell grep to highlight matches
 export GREP_OPTIONS="--color=auto"
 
