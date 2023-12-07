@@ -1,6 +1,6 @@
 [user]
 	name = Tiago Dias
-	email = tiago.dias@cldware.com
+	email = tiagofrederico.dias@gmail.com
 [color]
 	status = auto
 	diff = auto
@@ -36,3 +36,5 @@
   wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 [pull]
 	rebase = false
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig.inc

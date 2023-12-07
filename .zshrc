@@ -118,7 +118,7 @@ export ANSIBLE_CONFIG="/usr/local/etc/ansible"
 
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
-export USER_SHELLFILE="$HOME/personal/.dotfiles/work/Tiago-Cloudware.sh"
+export USER_SHELLFILE="$HOME/work/$HOST.sh"
 . $USER_SHELLFILE
 
 # Compilation flags
@@ -141,7 +141,6 @@ eval "$(op completion zsh)"; compdef _op op
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
-source ~/work/deployer/deployer.sh
 
 bindkey -s ^f "~/.local/bin/tmux-sessionizer\n"
 

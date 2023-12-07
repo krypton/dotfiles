@@ -40,15 +40,9 @@ map("n", "<C-k>", "<C-w>k", {})
 map("n", "<C-j>", "<C-w>j", {})
 map("n", "<C-h>", "<C-w>h", {})
 map("n", "<C-l>", "<C-w>l", {})
-map("n", "<C-c>", "<C-w>c", {})
-map("n", "<C-b>", "<C-w>s", {})
-map("n", "<C-s>", "<C-w>v", {})
-
--- map("n", "<Leader>bn", ":BufferLineCycleNext<CR>", {})
--- map("n", "<Leader>bp", ":BufferLineCyclePrev<CR>", {})
-
--- nvim-tree toggle
--- map("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+map("n", "<C-c>", "<C-w>c", {}) -- closes tab
+map("n", "<C-b>", "<C-w>s", {}) -- splits horizontally
+map("n", "<C-s>", "<C-w>v", {}) -- splits vertically
 
 map("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>", {})
 map("n", "<Leader>zz", "<cmd>ZenMode<CR>", {})
