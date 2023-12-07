@@ -1,13 +1,5 @@
 # dotfiles
 
-### Manual Installation
-
-Create symbolic links for the configurations you want to use, e.g.:
-
-    ln -s ~/personal/.dotfiles/.tmux.conf ~/.tmux.conf
-
-A collection of my personal dotfiles.
-
 ## Installation
 
 First step is to clone this repository:
