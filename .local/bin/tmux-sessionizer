@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(fd . ~/work ~/personal --type d --exact-depth 1 --exclude .bundle --exclude .ruby-lsp --exclude '*postgres*' --hidden | fzf)
 fi
 
 if [[ -z $selected ]]; then
