@@ -1,18 +1,31 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
+	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
-	opts = {},
 	config = function()
-		require("tokyonight").setup({
-			style = "moon",
-		})
-
-		vim.cmd.colorscheme("tokyonight-moon")
+		require("gruvbox").setup()
+		vim.o.background = "dark" -- or "light" for light mode
+		vim.cmd([[colorscheme gruvbox]])
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end,
+	opts = {},
 }
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("tokyonight").setup({
+-- 			style = "moon",
+-- 		})
+--
+-- 		vim.cmd.colorscheme("tokyonight-moon")
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 	end,
+-- }
+
 -- return {
 -- 	"catppuccin/nvim",
 -- 	name = "catppuccin",
