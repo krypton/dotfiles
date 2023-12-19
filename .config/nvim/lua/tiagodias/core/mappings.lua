@@ -28,6 +28,12 @@ map("n", "<Leader>v", ":cd ~/.config/nvim/<CR>:Telescope find_files<CR>", {})
 map("n", "<Leader>m", ":make<CR>", {})
 map("n", "<Leader>pv", ":Ex<CR>", {})
 
+-- quickfix
+map("n", "<Leader>cn", ":cnext<CR>", {})
+map("n", "<Leader>cp", ":cprev<CR>", {})
+map("n", "<Leader>cc", ":cclose<CR>", {})
+map("n", "<Leader>co", ":copen<CR>", {})
+
 -- system clipboard
 map({ "n", "v" }, "<Leader>y", '"+y', {})
 map({ "n" }, "<Leader>Y", '"+y$', {})
