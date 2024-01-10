@@ -1,0 +1,229 @@
+AllCops:
+  TargetRubyVersion: 2.6.6
+  NewCops: enable
+  Exclude:
+    - "vendor/**/*"
+    - "test/fixtures/**/*"
+    - "db/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
+    - "app/views/**/*"
+    - "config/environments/*"
+    - "node_modules/**/*"
+
+# Metrics Cops
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Description: "Avoid classes longer than 1000 lines of code."
+  Max: 1000
+  Enabled: false
+
+Metrics/ModuleLength:
+  Description: "Avoid modules longer than 300 lines of code."
+  Max: 300
+  Enabled: true
+
+Metrics/ParameterLists:
+  Description: "Pass no more than four parameters into a method."
+  Max: 10
+  Enabled: true
+
+Metrics/MethodLength:
+  Enabled: false
+  # Description: 'Avoid methods longer than 50 lines of code.'
+  # # StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
+  # Max: 50
+
+Metrics/BlockLength:
+  Enabled: false
+  # CountComments: false
+  # Max: 5
+  # IgnoredMethods:
+  #   - context
+  #   - describe
+  #   - it
+  #   - shared_examples
+  #   - shared_examples_for
+  #   - namespace
+  #   - draw
+  #   - configure
+  #   - group
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Style Cops
+
+Style/BlockDelimiters:
+  Enabled: false
+  # Exclude:
+  #   - 'spec/**/*'
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Description: "Checks style of children classes and modules."
+  Enabled: false
+  EnforcedStyle: nested
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    find: find
+    inject: reduce
+    collect: map
+    find_all: select
+
+Style/Documentation:
+  Description: "Document classes and non-namespace modules."
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+    Add the frozen_string_literal comment to the top of files
+    to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Description: >-
+    Favor modifier if/unless usage when you have a
+    single-line body.
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier"
+  Enabled: false
+
+Style/InlineComment:
+  Description: "Avoid inline comments."
+  Enabled: false
+
+Style/LineEndConcatenation:
+  Description: >-
+    Use \ instead of + or << to concatenate two string literals at
+    line end.
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  Description: "Checks for trailing comma in argument lists."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: no_comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Style/TrailingCommaInArrayLiteral:
+  Description: "Checks for trailing comma in array literals."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  Description: "Checks for trailing comma in hash literals."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+# Layout Cops
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - "config/initializers/*"
+
+Layout/FirstArgumentIndentation:
+  Enabled: false
+
+Layout/DotPosition:
+  Description: "Checks the position of the dot in multi-line method calls."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains"
+  Enabled: false
+
+Layout/LineLength:
+  Description: "Limit lines to 300 characters."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#80-character-limits"
+  Max: 300
+
+Layout/MultilineOperationIndentation:
+  Description: >-
+    Checks indentation of binary operations that span more than
+    one line.
+  Enabled: true
+  EnforcedStyle: aligned
+
+Layout/MultilineMethodCallIndentation:
+  Description: >-
+    Checks indentation of method calls with the dot operator
+    that span more than one line.
+  Enabled: true
+  EnforcedStyle: aligned
+
+Layout/SpaceAfterMethodName:
+  Enabled: false
+
+Layout/LeadingCommentSpace:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+# Lint
+Lint/SuppressedException:
+  Enabled: false
+
+# Bundler Cops
+
+Bundler/OrderedGems:
+  Enabled: false
+
+# Naming
+
+Naming/FileName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  MinNameLength: 1

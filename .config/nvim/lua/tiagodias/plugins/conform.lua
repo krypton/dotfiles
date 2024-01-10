@@ -35,13 +35,5 @@ return {
 			-- Set the log level. Use `:ConformInfo` to see the location of the log file.
 			log_level = vim.log.levels.DEBUG,
 		})
-
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			})
-		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }

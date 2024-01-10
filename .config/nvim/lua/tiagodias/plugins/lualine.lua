@@ -6,7 +6,7 @@ return {
 
 		lualine.setup({
 			options = {
-				theme = "gruvbox",
+				theme = "tokyonight",
 				globalstatus = true,
 			},
 			sections = {

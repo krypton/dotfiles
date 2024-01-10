@@ -110,13 +110,12 @@ fi
 # Tell grep to highlight matches
 export GREP_OPTIONS="--color=auto"
 
-# Ansible config
-export ANSIBLE_CONFIG="/usr/local/etc/ansible"
-
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
 export USER_SHELLFILE="$HOME/work/$HOST.sh"
 . $USER_SHELLFILE
+
+source ~/work/deployer/deployer.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -138,6 +137,7 @@ eval "$(op completion zsh)"; compdef _op op
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
+alias vim="nvim"
 
 bindkey -s ^f "~/.local/bin/tmux-sessionizer\n"
 
