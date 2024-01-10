@@ -3,7 +3,11 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . ~/work ~/personal --type d --exact-depth 1 --exclude .bundle --exclude .ruby-lsp --exclude '*postgres*' --hidden | fzf)
+    selected_paths=$(fd . ~/personal --type d --exact-depth 1 --exclude .bundle --hidden)
+    if [[ -d ~/work ]]; then
+        selected_paths+=$(fd . ~/work --type d --exact-depth 1 --exclude .bundle --exclude .ruby-lsp --exclude '*postgres*' --hidden)
+    fi
+    selected=$(echo $selected_paths | fzf)
 fi
 
 if [[ -z $selected ]]; then
