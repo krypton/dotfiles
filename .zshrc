@@ -116,9 +116,10 @@ export GREP_OPTIONS="--color=auto"
 [[ -s "$HOME/.iterm2_shell_integration.zsh" ]] && source "$HOME/.iterm2_shell_integration.zsh"
 
 export USER_SHELLFILE="$HOME/work/$HOST.sh"
-. $USER_SHELLFILE
+[[ -s $USER_SHELLFILE ]] && source $USER_SHELLFILE
 
-source ~/work/deployer/deployer.sh
+export DEPLOYER_SCRIPT="$HOME/work/deployer.sh"
+[[ -s $DEPLOYER_SCRIPT ]] && source $DEPLOYER_SCRIPT
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -129,17 +130,20 @@ source ~/work/deployer/deployer.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-eval "$(rbenv init - zsh)"
+command -v rbenv &>/dev/null && eval "$(rbenv init - zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # 1password CLI completion
-eval "$(op completion zsh)"; compdef _op op
+command -v op &>/dev/null && eval "$(op completion zsh)"; compdef _op op
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-alias ibrew="arch -x86_64 /usr/local/bin/brew"
+if [[ -s "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  alias ibrew="arch -x86_64 /usr/local/bin/brew"
+fi
+
 alias vim="nvim"
 
 bindkey -s ^f "~/.local/bin/tmux-sessionizer\n"
