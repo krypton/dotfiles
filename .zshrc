@@ -14,6 +14,7 @@ export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
 
 export LC_GIT_AUTHOR_NAME=$(git config --global user.name)
 export LC_GIT_AUTHOR_EMAIL=$(git config --global user.email)
