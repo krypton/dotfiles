@@ -118,7 +118,7 @@ export GREP_OPTIONS="--color=auto"
 export USER_SHELLFILE="$HOME/work/$HOST.sh"
 [[ -s $USER_SHELLFILE ]] && source $USER_SHELLFILE
 
-export DEPLOYER_SCRIPT="$HOME/work/deployer.sh"
+export DEPLOYER_SCRIPT="$HOME/work/deployer/deployer.sh"
 [[ -s $DEPLOYER_SCRIPT ]] && source $DEPLOYER_SCRIPT
 
 # Compilation flags
