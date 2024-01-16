@@ -193,5 +193,11 @@ return {
 				},
 			},
 		})
+
+		-- configure toml server with plugin
+		lspconfig["taplo"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }

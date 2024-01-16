@@ -27,6 +27,7 @@ return {
 				"tsserver",
 				"ruby_ls",
 				"gopls",
+				"taplo",
 			},
 		})
 

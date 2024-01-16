@@ -1,0 +1,40 @@
+[window]
+opacity = 0.95
+startup_mode = "Maximized"
+decorations_theme_variant = "dark"
+
+[scrolling]
+history = 100000
+
+[font]
+normal.family = "Hack Nerd Font Mono"
+size = 14.0
+offset.y = 2
+
+# TokyoNight Alacritty Colors
+[colors]
+primary.background = "0x1a1b26"
+primary.foreground = "0xc8d3f5"
+
+normal.black = "0x1b1d2b"
+normal.red = "0xff757f"
+normal.green = "0xc3e88d"
+normal.yellow = "0xffc777"
+normal.blue = "0x82aaff"
+normal.magenta = "0xc099ff"
+normal.cyan = "0x86e1fc"
+normal.white = "0x828bb8"
+
+bright.black = "0x444a73"
+bright.red = "0xff757f"
+bright.green = "0xc3e88d"
+bright.yellow = "0xffc777"
+bright.blue = "0x82aaff"
+bright.magenta = "0xc099ff"
+bright.cyan = "0x86e1fc"
+bright.white = "0xc8d3f5"
+
+indexed_colors = [
+  { index = 16, color = "0xff966c" },
+  { index = 17, color = "0xc53b53" },
+]
