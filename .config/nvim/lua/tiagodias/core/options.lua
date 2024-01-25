@@ -49,7 +49,6 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
 	sidescrolloff = 8, -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
-	guifont = "Monaspace Neon:h13", -- the font used in graphical neovim applications, this does not affect neovim running inside terminal
 	linebreak = true,
 	fileformat = "unix",
 }
@@ -63,3 +62,4 @@ vim.opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX 
 vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
+vim.o.termguicolors = true
