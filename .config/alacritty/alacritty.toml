@@ -9,7 +9,7 @@ decorations_theme_variant = "dark"
 history = 100000
 
 [font]
-normal.family = "MonaspiceAr Nerd Font Propo"
+normal.family = "JetBrainsMono Nerd Font Propo"
 size = 13.0
 offset.y = 2
 
