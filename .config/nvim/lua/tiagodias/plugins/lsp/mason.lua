@@ -8,7 +8,7 @@ return {
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
-		local cmd = vim.fn.system("which ruby")
+		local exit_code = vim.fn.system("which ruby; echo $?")
 		local ensure_installed = {
 			"lua_ls",
 			"cssls",
@@ -27,7 +27,8 @@ return {
 				},
 			},
 		})
-		if cmd ~= "ruby not found\n" then
+
+		if exit_code == 0 then
 			table.insert(ensure_installed, "ruby_ls")
 		end
 
