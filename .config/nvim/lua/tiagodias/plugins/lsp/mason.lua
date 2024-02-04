@@ -8,6 +8,15 @@ return {
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
+		local cmd = vim.fn.system("which ruby")
+		local ensure_installed = {
+			"lua_ls",
+			"cssls",
+			"html",
+			"tsserver",
+			"gopls",
+			"taplo",
+		}
 
 		mason.setup({
 			ui = {
@@ -18,17 +27,12 @@ return {
 				},
 			},
 		})
+		if cmd ~= "ruby not found\n" then
+			table.insert(ensure_installed, "ruby_ls")
+		end
 
 		mason_lspconfig.setup({
-			ensure_installed = {
-				"lua_ls",
-				"cssls",
-				"html",
-				"tsserver",
-				"ruby_ls",
-				"gopls",
-				"taplo",
-			},
+			ensure_installed = ensure_installed,
 		})
 
 		mason_tool_installer.setup({
