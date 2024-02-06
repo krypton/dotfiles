@@ -1,7 +1,7 @@
 [window]
 dimensions.columns = 216
 dimensions.lines = 59
-# opacity = 0.95
+opacity = 0.95
 startup_mode = "Windowed"
 decorations_theme_variant = "dark"
 
@@ -54,6 +54,7 @@ indexed_colors = [
 
 [env]
 term = "xterm-256color"
+# WINIT_X11_SCALE_FACTOR = "1.0"
 
 # [keyboard]
 # bindings = [

@@ -1,0 +1,34 @@
+alias vim='nvim'
+alias ll='ls -lart'
+
+# Git
+alias ga='git add'
+alias gc='git commit'
+alias gp='git pull'
+alias gP='git push'
+
+# Fast navigation
+alias dots="cd $DOTFILES"
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias d="dirs -v"
+for index in $(seq 1 10); do
+  alias "$index"="cd +$index"
+done
+unset index
+
+# Homebrew MacOS legacy
+if [ $OS = 'darwin' ]; then
+  alias ibrew="arch -x86_64 /usr/local/bin/brew"
+  alias ibrewc="arch -x86_64 /usr/local/bin/brew cask"
+  alias ibrews="arch -x86_64 /usr/local/bin/brew services"
+  alias ibrewup="arch -x86_64 /usr/local/bin/brew update && arch -x86_64 /usr/local/bin/brew upgrade && arch -x86_64 /usr/local/bin/brew cleanup"
+  alias ibrewcu="arch -x86_64 /usr/local/bin/brew cask upgrade"
+  alias ibrewci="arch -x86_64 /usr/local/bin/brew cask install"
+  alias ibrewcis="arch -x86_64 /usr/local/bin/brew cask install --force"
+  alias ibrewcun="arch -x86_64 /usr/local/bin/brew cask uninstall"
+  alias ibrewcuns="arch -x86_64 /usr/local/bin/brew cask uninstall --force"
+  alias ibrewcug="arch -x86_64 /usr/local/bin/brew cask upgrade"
+  alias ibrewcugf="arch -x86_64 /usr/local/bin/brew cask upgrade --force"
+fi

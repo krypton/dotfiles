@@ -1,0 +1,61 @@
+Xft.dpi: 120
+
+! These might also be useful depending on your monitor and personal preference:
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+! Xft.rgba: rgb
+
+! *.foreground: #C6C6C6
+! *.background: #1C1C1C
+! *.cursorColor: #444444
+!
+! ! black 236 238
+! *.color0: #303030
+! *.color8: #444444
+! ! red 167
+! *.color1: #d75f5f
+! *.color9: #d75f5f
+! ! green 108
+! *.color2: #87AF87
+! *.color10: #87AF87
+! ! yellow 221
+! *.color3: #ffd75f
+! *.color11: #ffd75f
+! ! blue 110
+! *.color4: #87afd7
+! *.color12: #87afd7
+! ! magenta 146
+! *.color5: #afafd7
+! *.color13: #afafd7
+! ! cyan 75
+! *.color6: #afd7ff
+! *.color14: #afd7ff
+! ! white 239 15
+! *.color7: #e4e4e4
+! *.color15: #ffffff
+
+! TokyoNight colors for Xresources
+
+*background: #222436
+*foreground: #c8d3f5
+
+*color0: #1b1d2b
+*color1: #ff757f
+*color2: #c3e88d
+*color3: #ffc777
+*color4: #82aaff
+*color5: #c099ff
+*color6: #86e1fc
+*color7: #828bb8
+
+*color8: #444a73
+*color9: #ff757f
+*color10: #c3e88d
+*color11: #ffc777
+*color12: #82aaff
+*color13: #c099ff
+*color14: #86e1fc
+*color15: #c8d3f5
