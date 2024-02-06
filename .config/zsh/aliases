@@ -19,7 +19,7 @@ done
 unset index
 
 # Homebrew MacOS legacy
-if [ $OS = 'darwin' ]; then
+if [ $OS = 'macos' ]; then
   alias ibrew="arch -x86_64 /usr/local/bin/brew"
   alias ibrewc="arch -x86_64 /usr/local/bin/brew cask"
   alias ibrews="arch -x86_64 /usr/local/bin/brew services"

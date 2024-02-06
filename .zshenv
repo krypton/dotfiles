@@ -40,9 +40,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 case "$(uname -s)" in
   Darwin)
     export OS='macos'
+    export ZSH_PLUGINS_HOME='/opt/homebrew/share'
     ;;
   Linux)
     export OS='linux'
+    export ZSH_PLUGINS_HOME='/usr/share/zsh/plugins'
     ;;
   *)
     export OS='unknown'
@@ -56,13 +58,16 @@ export PATH="$XDG_BIN_HOME:$PATH"
 export PATH="$XDG_DATA_HOME/nvim/mason/bin:$PATH"
 
 # Homebrew into PATH
-if [[ -d /opt/homebrew/bin ]] && [ $OS = 'darwin' ]; then
+if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 # Work related
-if [ $OS = 'darwin' ]; then
+if [ $OS = 'macos' ]; then
   export USER_SHELLFILE="$HOME/work/$HOST.sh"
   export DEPLOYER_SCRIPT="$HOME/work/deployer/deployer.sh"
   export SDKMAN_DIR="$HOME/.sdkman"
+
+ # zsh-syntax-highlighting
+  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/highlighters"
 fi

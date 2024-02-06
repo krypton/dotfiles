@@ -41,18 +41,17 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source "$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # zsh-autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source "$ZSH_PLUGINS_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # zsh-history-substring-search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$ZSH_PLUGINS_HOME/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # fzf completion
 if [ $(command -v "fzf") ]; then
-  source /usr/share/fzf/completion.zsh
-  source /usr/share/fzf/key-bindings.zsh
+  [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh # fzf shell completion for Linux
+  [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh # fzf key bindings for Linux
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # fzf shell completion for macOS
 fi
 
 # jumping directories
@@ -89,6 +88,6 @@ if [ $(command -v "op") ]; then
 fi
 
 # brew init
-if [[ -s "/opt/homebrew/bin/brew" ]] && [ $OS = 'darwin' ]; then
+if [[ -s "/opt/homebrew/bin/brew" ]] && [ $OS = 'macos' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
