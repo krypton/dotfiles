@@ -2,3 +2,5 @@
 .config/lazygit/state.yml
 .local/bin/fd
 .config/nvim/lazy-lock.json
+.config/zsh/.zcompdump*
+.config/zsh/.zsh_history
