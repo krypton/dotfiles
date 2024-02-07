@@ -40,6 +40,12 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Enable overmind completions
+if [ $(command -v "overmind") ]; then
+  source "$ZDOTDIR/external/zsh-overmind-autocomplete/zsh-overmind-autocomplete.plugin.zsh"
+  autoload -Uz _overmind_generic, _overmind_generic
+fi
+
 # zsh-syntax-highlighting
 source "$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # zsh-autosuggestions

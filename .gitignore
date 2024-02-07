@@ -4,3 +4,4 @@
 .config/nvim/lazy-lock.json
 .config/zsh/.zcompdump*
 .config/zsh/.zsh_history
+.config/zsh/external/zsh-overmind-autocomplete
