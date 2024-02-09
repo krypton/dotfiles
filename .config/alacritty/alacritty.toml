@@ -50,7 +50,7 @@ indexed_colors = [
   { index = 17, color = "0xc53b53" },
 ]
 
-# transparent_background_colors = true
+transparent_background_colors = true
 
 [env]
 term = "xterm-256color"

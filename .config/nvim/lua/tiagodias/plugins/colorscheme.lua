@@ -9,8 +9,21 @@ return {
 		})
 
 		vim.cmd.colorscheme("tokyonight-moon")
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		local highlights = {
+			"Normal",
+			"NormalFloat",
+			"LineNr",
+			"Folded",
+			"NonText",
+			"SpecialKey",
+			"VertSplit",
+			"SignColumn",
+			"EndOfBuffer",
+			"TablineFill", -- this is specific to how I like my tabline to look like
+		}
+		for _, name in pairs(highlights) do
+			vim.cmd.highlight(name .. " guibg=none ctermbg=none")
+		end
 	end,
 }
 
