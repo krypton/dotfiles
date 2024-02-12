@@ -62,6 +62,11 @@ if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   export PATH="/opt/homebrew/bin:$PATH"
 fi
 
+# Load kitty into PATH
+if [[ -d /Applications/kitty.app/Contents/MacOS ]] && [ $OS = 'macos' ]; then
+  export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
+fi
+
 # Work related
 if [ $OS = 'macos' ]; then
   export USER_SHELLFILE="$HOME/work/$HOST.sh"
