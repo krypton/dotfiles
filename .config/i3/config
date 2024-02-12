@@ -51,7 +51,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -185,7 +185,7 @@ bindsym $mod+BackSpace mode "$mode_system"
 exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/PagedOut_002_wallpaper_10.png
 
 # assign apps to there corresponding workspace
-assign [class="Alacritty"] $terms
+assign [class="kitty"] $terms
 assign [class="firefox" instance="Navigator"] $web
 assign [class="org.pwmt.zathura" instance="Zathura"] $documents
 assign [class="spotube" instance="Spotube"] $multimedia
