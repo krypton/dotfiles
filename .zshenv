@@ -62,9 +62,14 @@ if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   export PATH="/opt/homebrew/bin:$PATH"
 fi
 
-# Load kitty into PATH
+# Load kitty into PATH on MacOS
 if [[ -d /Applications/kitty.app/Contents/MacOS ]] && [ $OS = 'macos' ]; then
   export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
+fi
+
+# Load kitty into PATH on Linux
+if [[ -d ~/.local/kitty.app/bin ]] && [ $OS = 'linux' ]; then
+  export PATH="~/.local/kitty.app/bin:$PATH"
 fi
 
 # Work related
