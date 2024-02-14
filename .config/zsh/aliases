@@ -1,5 +1,5 @@
 alias vim='nvim'
-alias ll='ls -lart'
+alias ll='ls -lart --color'
 
 # Git
 alias ga='git add'
