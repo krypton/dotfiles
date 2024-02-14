@@ -10,7 +10,7 @@ return {
 		local barbecue = require("barbecue")
 
 		barbecue.setup({
-			theme = "tokyonight",
+			theme = "rose-pine",
 			attach_navic = false,
 			show_dirname = true,
 			show_basename = true,

@@ -13,43 +13,83 @@ normal.family = "JetBrainsMono Nerd Font Propo"
 size = 13.0
 offset.y = 2
 
-# TokyoNight Alacritty Colors
+# Colors section of "Alacritty - TOML configuration file format"
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
+# rose-pine-moon
+
+[colors.primary]
+foreground = "#e0def4"
+background = "#232136"
+dim_foreground = "#908caa"
+bright_foreground = "#e0def4"
+
+[colors.cursor]
+text = "#e0def4"
+cursor = "#56526e"
+
+[colors.vi_mode_cursor]
+text = "#e0def4"
+cursor = "#56526e"
+
+[colors.search.matches]
+foreground = "#908caa"
+background = "#393552"
+
+[colors.search.focused_match]
+foreground = "#232136"
+background = "#ea9a97"
+
+[colors.hints.start]
+foreground = "#908caa"
+background = "#2a273f"
+
+[colors.hints.end]
+foreground = "#6e6a86"
+background = "#2a273f"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#e0def4"
+background = "#2a273f"
+
+[colors.selection]
+text = "#e0def4"
+background = "#44415a"
+
+[colors.normal]
+black = "#393552"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
+
+[colors.bright]
+black = "#6e6a86"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
+
+[colors.dim]
+black = "#6e6a86"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
+
 [colors]
-primary.background = "0x1a1b26"
-primary.foreground = "0xc8d3f5"
-
-normal.black = "0x1b1d2b"
-normal.red = "0xff757f"
-normal.green = "0xc3e88d"
-normal.yellow = "0xffc777"
-normal.blue = "0x82aaff"
-normal.magenta = "0xc099ff"
-normal.cyan = "0x86e1fc"
-normal.white = "0x828bb8"
-
-# bright.black = "0x1b1d2b"
-# bright.red = "0xff757f"
-# bright.green = "0xc3e88d"
-# bright.yellow = "0xffc777"
-# bright.blue = "0x82aaff"
-# bright.magenta = "0xc099ff"
-# bright.cyan = "0x86e1fc"
-# bright.white = "0x828bb8"
-
-bright.black = "0x444a73"
-bright.red = "0xff757f"
-bright.green = "0xc3e88d"
-bright.yellow = "0xffc777"
-bright.blue = "0x82aaff"
-bright.magenta = "0xc099ff"
-bright.cyan = "0x86e1fc"
-bright.white = "0xc8d3f5"
-
-indexed_colors = [
-  { index = 16, color = "0xff966c" },
-  { index = 17, color = "0xc53b53" },
-]
-
 transparent_background_colors = true
 
 [env]
