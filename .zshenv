@@ -8,13 +8,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_BIN_HOME="$HOME/.local/bin"
 
 # Editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-  export VISUAL='vim'
-else
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-fi
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # ZSH
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
