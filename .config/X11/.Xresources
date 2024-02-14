@@ -6,56 +6,42 @@ Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
-! Xft.rgba: rgb
 
-! *.foreground: #C6C6C6
-! *.background: #1C1C1C
-! *.cursorColor: #444444
-!
-! ! black 236 238
-! *.color0: #303030
-! *.color8: #444444
-! ! red 167
-! *.color1: #d75f5f
-! *.color9: #d75f5f
-! ! green 108
-! *.color2: #87AF87
-! *.color10: #87AF87
-! ! yellow 221
-! *.color3: #ffd75f
-! *.color11: #ffd75f
-! ! blue 110
-! *.color4: #87afd7
-! *.color12: #87afd7
-! ! magenta 146
-! *.color5: #afafd7
-! *.color13: #afafd7
-! ! cyan 75
-! *.color6: #afd7ff
-! *.color14: #afd7ff
-! ! white 239 15
-! *.color7: #e4e4e4
-! *.color15: #ffffff
+! rose-pine-moon colors for Xresources
 
-! TokyoNight colors for Xresources
+! special
+*.foreground:   #e0def4
+*.background:   #232136
+*.cursorColor:  #e0def4
 
-*background: #222436
-*foreground: #c8d3f5
+! black
+*.color0:       #2a273f
+*.color8:       #393552
 
-*color0: #1b1d2b
-*color1: #ff757f
-*color2: #c3e88d
-*color3: #ffc777
-*color4: #82aaff
-*color5: #c099ff
-*color6: #86e1fc
-*color7: #828bb8
+! red
+*.color1:       #eb6f92
+*.color9:       #eb6f92
 
-*color8: #444a73
-*color9: #ff757f
-*color10: #c3e88d
-*color11: #ffc777
-*color12: #82aaff
-*color13: #c099ff
-*color14: #86e1fc
-*color15: #c8d3f5
+! green
+*.color2:       #f6c177
+*.color10:      #f6c177
+
+! yellow
+*.color3:       #ea9a97
+*.color11:      #ea9a97
+
+! blue
+*.color4:       #3e8fb0
+*.color12:      #3e8fb0
+
+! magenta
+*.color5:       #c4a7e7
+*.color13:      #c4a7e7
+
+! cyan
+*.color6:       #9ccfd8
+*.color14:      #9ccfd8
+
+! white
+*.color7:       #6e6a86
+*.color15:      #908caa

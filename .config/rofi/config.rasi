@@ -150,4 +150,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "~/.config/rofi/themes/tokyonight.rasi"
+@theme "~/.config/rofi/themes/rose-pine-moon.rasi"

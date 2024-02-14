@@ -311,24 +311,23 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
-# TokyoNight colors for dunst
+# rose-pine colors for dunst
 [urgency_low]
-    background = "#1e2030"
-    foreground = "#c8d3f5"
-    frame_color = "#c8d3f5"
+    background = "#232136"
+    foreground = "#e0def4"
+    frame_color = "#c4a7e7"
     timeout = 10
 
 [urgency_normal]
-    background = "#222436"
-    foreground = "#c8d3f5"
-    frame_color = "#c8d3f5"
+    background = "#2a273f"
+    foreground = "#e0def4"
+    frame_color = "#3e8fb0"
     timeout = 10
 
 [urgency_critical]
-    background = "#2f334d"
-    foreground = "#c53b53"
-    frame_color = "#c53b53"
+    background = "#393552"
+    foreground = "#e0def4"
+    frame_color = "#eb6f92"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
