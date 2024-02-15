@@ -41,7 +41,10 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-autoload -U compinit; compinit
+# brew init
+if [[ -s "/opt/homebrew/bin/brew" ]] && [ $OS = 'macos' ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Autocomplete hidden files
 _comp_options+=(globdots)
@@ -50,7 +53,15 @@ source "$ZDOTDIR/external/completion.zsh"
 # Load external completions
 fpath=($ZDOTDIR/external $fpath)
 
-autoload -Uz prompt_purification_setup; prompt_purification_setup
+# Load brew zsh completions
+if type brew &>/dev/null; then
+  echo "Loading brew completions"
+  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+fi
+
+autoload -Uz compinit && compinit
+
+autoload -Uz prompt_purification_setup && prompt_purification_setup
 
 # Enable vi mode
 bindkey -v
@@ -67,7 +78,7 @@ bindkey -M vicmd v edit-command-line
 # Enable overmind completions
 if [ $(command -v "overmind") ]; then
   source "$ZDOTDIR/external/zsh-overmind-autocomplete/zsh-overmind-autocomplete.plugin.zsh"
-  autoload -Uz _overmind_generic, _overmind_generic
+  autoload -Uz _overmind_generic && _overmind_generic
 fi
 
 # zsh-syntax-highlighting
@@ -124,9 +135,4 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
     kitty-integration
     unfunction kitty-integration
-fi
-
-# brew init
-if [[ -s "/opt/homebrew/bin/brew" ]] && [ $OS = 'macos' ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

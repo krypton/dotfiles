@@ -14,7 +14,7 @@
 	quotepath = false
 	autocrlf = false
 	safecrlf = true
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-highlight | less -x4
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -39,3 +39,5 @@
 	rebase = false
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig.inc
+[interactive]
+	difffilter = diff-highlight

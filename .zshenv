@@ -56,6 +56,10 @@ export PATH="$XDG_DATA_HOME/nvim/mason/bin:$PATH"
 # Homebrew into PATH
 if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   export PATH="/opt/homebrew/bin:$PATH"
+
+  if [ -d "$(brew --prefix git)/share/git-core/contrib/diff-highlight" ]; then
+    export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+  fi
 fi
 
 # Load kitty into PATH on MacOS
