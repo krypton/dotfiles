@@ -55,7 +55,6 @@ fpath=($ZDOTDIR/external $fpath)
 
 # Load brew zsh completions
 if type brew &>/dev/null; then
-  echo "Loading brew completions"
   fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
 fi
 
