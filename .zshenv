@@ -62,6 +62,11 @@ if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   fi
 fi
 
+# Load diff-highlight into PATH on Linux
+if [[ -d /usr/share/git/diff-highlight ]] && [ $OS = 'linux' ]; then
+  export PATH="/usr/share/git/diff-highlight:$PATH"
+fi
+
 # Load kitty into PATH on MacOS
 if [[ -d /Applications/kitty.app/Contents/MacOS ]] && [ $OS = 'macos' ]; then
   export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
