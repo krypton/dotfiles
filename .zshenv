@@ -18,7 +18,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # Dotfiles
-export DOTFILES="$HOME/personal/.dotfiles"
+export DOTFILES="$HOME/personal/dotfiles"
 
 # FZF theme rose-pine moon
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
