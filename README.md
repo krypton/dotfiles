@@ -4,15 +4,9 @@
 
 First step is to clone this repository:
 
-    git clone git@github.com:krypton/dotfiles.git ~/.dotfiles
+    git clone git@github.com:krypton/dotfiles.git
 
-### Manual Installation
-
-Create symbolic links for the configurations you want to use, e.g.:
-
-    ln -s ~/personal/.dotfiles/.tmux.conf ~/.tmux.conf
-
-### Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_
+### Using [GNU Stow](https://www.gnu.org/software/stow/)
 
 Install GNU Stow _(if not already installed)_
 
@@ -21,7 +15,6 @@ Install GNU Stow _(if not already installed)_
     Fedora:   yum install stow
     Arch:     pacman -S stow
 
-Then simply use stow to install the dotfiles you want to use:
+Then simply use stow to install the dotfiles:
 
-    cd ~/personal
-    stow -t ~ .dotfiles
+    stow -t ~ dotfiles
