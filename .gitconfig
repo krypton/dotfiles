@@ -14,7 +14,7 @@
 	quotepath = false
 	autocrlf = false
 	safecrlf = true
-	pager = diff-highlight | less -x4
+	pager = delta
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -40,4 +40,18 @@
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig.inc
 [interactive]
-	difffilter = diff-highlight
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true
+	line-numbers = true
+	hyperlinks = true
+[diff]
+	colorMoved = default
+	algorithm = histogram
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "https://github.com/"
+[branch]
+	sort = -committerdate
