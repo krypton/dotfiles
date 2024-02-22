@@ -51,7 +51,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,20 +181,22 @@ mode "$mode_system" {
 
 bindsym $mod+BackSpace mode "$mode_system"
 
-# wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/PagedOut_002_wallpaper_10.png
+# cycle wallpaper every hour
+exec_always --no-startup-id watch -n 3600 feh --no-fehbg --randomize --bg-fill ~/Pictures/Wallpapers/* &> /dev/null
 
 # assign apps to there corresponding workspace
 assign [class="kitty"] $terms
 assign [class="firefox" instance="Navigator"] $web
-assign [class="org.pwmt.zathura" instance="Zathura"] $documents
-assign [class="spotube" instance="Spotube"] $multimedia
+assign [class="thunderbird" instance="Mail"] $mail
+assign [class="Zathura" instance="org.pwmt.zathura"] $documents
+assign [class="Spotify" instance="spotify"] $multimedia
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="1Password"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -233,17 +235,17 @@ bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 title_align center
 # hide borders
-hide_edge_borders both
+hide_edge_borders smart
 
 default_border pixel 4
 
 # Set default container border style
 # Configure 5px of space between windows and to the screen edges.
-gaps inner 10px
+gaps inner 5
 
 # Configure an additional 5px of extra space to the screen edges,
 # for a total gap of 10px to the screen edges, and 5px between windows.
-gaps outer 10px
+gaps outer 0
 
 # Only enable outer gaps when there is exactly one window or split container on the workspace.
 smart_gaps inverse_outer
@@ -268,7 +270,7 @@ set $highlighthigh  #56526e
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $rose     $base $text  $rose      $rose
+client.focused           $rose     $base $text  $rose      $pine
 client.focused_inactive  $text     $base $text  $subtle    $surface
 client.unfocused         $text     $base $text  $overlay   $overlay
 client.urgent            $text     $base $text  $love      $love
