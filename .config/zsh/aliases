@@ -8,7 +8,7 @@ alias gp='git pull'
 alias gP='git push'
 
 # SSH with kitty
-alias ssh='TERM=xterm-256color kitten ssh'
+alias kssh='TERM=xterm-256color kitten ssh'
 
 # Fast navigation
 alias dots="cd $DOTFILES"
