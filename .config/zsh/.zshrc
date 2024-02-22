@@ -135,3 +135,8 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     kitty-integration
     unfunction kitty-integration
 fi
+
+# load zoxide as cd replacement
+if [ $(command -v "zoxide") ]; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
