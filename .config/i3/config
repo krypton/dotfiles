@@ -120,11 +120,11 @@ bindsym $mod+z exec dunstctl history-pop
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $terms "1: terminals"
-set $web "2: web"
-set $mail "3: mail"
-set $documents "4: documents"
-set $multimedia "5: multimedia"
+set $terms "1:"
+set $web "2:"
+set $mail "3:"
+set $documents "4:"
+set $multimedia "5:󰓇"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -280,31 +280,31 @@ client.background        $base
 # assign applications to specific workspace
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    i3bar_command i3bar --transparency
-    status_command i3status --config ~/.config/i3/i3status.conf
-
-    # Disable all tray icons
-    # tray_output none
-    tray_output primary
-
-    position top
-    workspace_min_width 160px
-    binding_mode_indicator yes
-
-    colors {
-        background $basealpha
-        statusline $text
-        separator  $rose
-
-        # target                border   background text
-        focused_workspace 	$rose    $base      $text
-        active_workspace 	$rose    $base      $text
-        inactive_workspace 	$overlay $base      $text
-        urgent_workspace 	$love    $base      $text
-        binding_mode 		$gold    $base      $text
-    }
-}
+# bar {
+#     i3bar_command i3bar --transparency
+#     status_command i3status --config ~/.config/i3/i3status.conf
+#
+#     # Disable all tray icons
+#     # tray_output none
+#     tray_output primary
+#
+#     position top
+#     # workspace_min_width 160px
+#     binding_mode_indicator yes
+#
+#     colors {
+#         background $basealpha
+#         statusline $text
+#         separator  $pine
+#
+#         # target                border   background text
+#         focused_workspace 	$pine    $base      $text
+#         active_workspace 	$rose    $base      $text
+#         inactive_workspace 	$overlay $base      $text
+#         urgent_workspace 	$love    $base      $text
+#         binding_mode 		$gold    $base      $text
+#     }
+# }
 
 # config monitor resolution
 set $mode_display Config monitor resolution - Default config (d)
@@ -317,3 +317,6 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 bindsym $mod+a mode "$mode_display"
+
+# Startup polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
