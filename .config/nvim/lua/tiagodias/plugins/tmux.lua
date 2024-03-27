@@ -8,15 +8,4 @@ return {
 			tmux.setup()
 		end,
 	},
-	{
-		"vimpostor/vim-tpipeline",
-		config = function()
-			-- Disable the statusline when entering vim
-			vim.g.tpipeline_autoembed = 0
-			-- Restore the previous statusline after quitting vim
-			-- vim.g.tpipeline_restore = 1
-			-- Clear duplicate statusline when there is split windows
-			vim.g.tpipeline_clearstl = 1
-		end,
-	},
 }
