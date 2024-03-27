@@ -27,8 +27,6 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[commit]
-	template = ~/.stCommitMsg
 [gitflow "hotfix.finish"]
 	message = Hotfix %tag%
 [gitflow "release.finish"]
