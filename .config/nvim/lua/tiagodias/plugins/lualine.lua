@@ -6,7 +6,7 @@ return {
 
 		lualine.setup({
 			options = {
-				theme = "rose-pine",
+				theme = "tokyonight",
 				globalstatus = true,
 			},
 			sections = {

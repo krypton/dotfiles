@@ -7,41 +7,26 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 
-! rose-pine-moon colors for Xresources
+! TokyoNight colors for Xresources
 
-! special
-*.foreground:   #e0def4
-*.background:   #232136
-*.cursorColor:  #e0def4
+*background: #222436
+*foreground: #c8d3f5
 
-! black
-*.color0:       #2a273f
-*.color8:       #393552
+*color0: #1b1d2b
+*color1: #ff757f
+*color2: #c3e88d
+*color3: #ffc777
+*color4: #82aaff
+*color5: #c099ff
+*color6: #86e1fc
+*color7: #828bb8
 
-! red
-*.color1:       #eb6f92
-*.color9:       #eb6f92
+*color8: #444a73
+*color9: #ff757f
+*color10: #c3e88d
+*color11: #ffc777
+*color12: #82aaff
+*color13: #c099ff
+*color14: #86e1fc
+*color15: #c8d3f5
 
-! green
-*.color2:       #f6c177
-*.color10:      #f6c177
-
-! yellow
-*.color3:       #ea9a97
-*.color11:      #ea9a97
-
-! blue
-*.color4:       #3e8fb0
-*.color12:      #3e8fb0
-
-! magenta
-*.color5:       #c4a7e7
-*.color13:      #c4a7e7
-
-! cyan
-*.color6:       #9ccfd8
-*.color14:      #9ccfd8
-
-! white
-*.color7:       #6e6a86
-*.color15:      #908caa
