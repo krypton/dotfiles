@@ -1,4 +1,4 @@
 return {
-	"github/copilot.vim",
-	build = ":Copilot setup",
+	-- "github/copilot.vim",
+	-- build = ":Copilot setup",
 }
