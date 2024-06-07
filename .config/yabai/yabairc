@@ -5,11 +5,20 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding set to 12px
-yabai -m config top_padding 12
-yabai -m config bottom_padding 12
-yabai -m config left_padding 12
-yabai -m config right_padding 12
-yabai -m config window_gap 12
+yabai -m config top_padding 6
+yabai -m config bottom_padding 6
+yabai -m config left_padding 6
+yabai -m config right_padding 6
+yabai -m config window_gap 6
+
+yabai -m space 1 --label terms
+yabai -m space 2 --label web
+yabai -m space 3 --label mail
+yabai -m space 4 --label documents
+yabai -m space 5 --label multimedia
+yabai -m space 6 --label chat
+yabai -m space 7 --label web_work --display 2
+yabai -m space 8 --label mail_work --display 2
 
 # -- mouse settings --
 
@@ -26,9 +35,26 @@ yabai -m config mouse_action2 resize
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
 
+# modify window shadows (default: on, options: on, off, float)
+# example: show shadows only for floating windows
+# yabai -m config window_shadow float
+
+# window opacity (default: off)
+# example: render all unfocused windows with 90% opacity
+# yabai -m config window_opacity on
+# yabai -m config active_window_opacity 1.0
+# yabai -m config normal_window_opacity 0.7
 
 # disable specific apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
+
+yabai -m rule --add app="WezTerm" space=^terms
+yabai -m rule --add app="Google Chrome" space=^web_work
+yabai -m rule --add app="Firefox" space=^web
+yabai -m rule --add app="Mail" space=^mail_work
+yabai -m rule --add app="Thunderbird" space=^mail
+yabai -m rule --add app="Spotify" space=^multimedia
+yabai -m rule --add app="Slack" space=^chat
