@@ -176,8 +176,8 @@ return {
 			},
 		})
 
-		-- configure ruby_ls as a ruby lsp server
-		lspconfig["ruby_ls"].setup({
+		-- configure ruby_lsp as a ruby lsp server
+		lspconfig["ruby_lsp"].setup({
 			capabilities = capabilities,
 			on_attach = function(client, buffer)
 				setup_diagnostics(client, buffer)

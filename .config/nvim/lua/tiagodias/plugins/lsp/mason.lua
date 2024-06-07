@@ -30,7 +30,7 @@ return {
 		})
 
 		if exit_code == 0 then
-			table.insert(ensure_installed, "ruby_ls")
+			table.insert(ensure_installed, "ruby_lsp")
 		end
 
 		mason_lspconfig.setup({
