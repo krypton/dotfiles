@@ -1,6 +1,5 @@
 # Keep in mind that this file is stowed as a global gitignore file, so it will be used for all git repositories on your system.
 .DS_Store
 .config/lazygit/state.yml
-.config/nvim/lazy-lock.json
 .zcompdump*
 .zsh_history*
