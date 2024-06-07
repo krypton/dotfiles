@@ -1,5 +1,8 @@
 alias vim='nvim'
-alias ll='ls -lart --color'
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
 
 # Git
 alias ga='git add'
@@ -14,6 +17,7 @@ alias kssh='TERM=xterm-256color kitten ssh'
 alias dots="cd $DOTFILES"
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 
 alias d="dirs -v"
 for index in $(seq 1 10); do
