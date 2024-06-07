@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
@@ -14,9 +16,7 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-
 		local luasnip = require("luasnip")
-
 		local lspkind = require("lspkind")
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -25,6 +25,10 @@ return {
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
@@ -54,6 +58,9 @@ return {
 					maxwidth = 50,
 					ellipsis_char = "...",
 				}),
+			},
+			experimental = {
+				ghost_text = true,
 			},
 		})
 

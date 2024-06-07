@@ -49,23 +49,27 @@ return {
 		telescope.load_extension("fzf")
 
 		-- set keymaps
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy [f]ind [f]iles in cwd" })
-		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Fuzzy [f]ind [o] files" })
-		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "[F]ind [s]tring in cwd" })
-		vim.keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "[F]ind string under [c]ursor in cwd" })
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind existing [b]uffers" })
 		vim.keymap.set(
 			"n",
-			"<leader>/",
+			"<leader>s/",
 			builtin.current_buffer_fuzzy_find,
-			{ desc = "[/] Fuzzily search in current buffer" }
+			{ desc = "[S]earch in current buffer [/]" }
 		)
-		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind [G]it Files" })
-		vim.keymap.set("n", "<leader>fh", function()
-			builtin.help_tags({ previewer = false })
-		end, { desc = "[F]ind [H]elp" })
-		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
-		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
-		vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "[F]ind [T]reesitter" })
+		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [f]iles in cwd" })
+		vim.keymap.set("n", "<leader>ss", builtin.live_grep, { desc = "[S]earch [s]tring in cwd" })
+		vim.keymap.set("n", "<leader>sc", builtin.grep_string, { desc = "[S]earch string under [c]ursor in cwd" })
+		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [b]uffers" })
+		vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [g]it files" })
+		vim.keymap.set("n", "<leader>sh", function()
+			builtin.help_tags({
+				previewer = false,
+				layout_strategy = "vertical",
+				layout_config = {
+					width = 0.5,
+				},
+			})
+		end, { desc = "[S]earch [h]elp" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [d]iagnostics" })
+		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [r]esume" })
 	end,
 }

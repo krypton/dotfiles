@@ -9,6 +9,7 @@ return {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function()
+			---@diagnostic disable-next-line: missing-fields
 			require("ts_context_commentstring").setup({
 				enable_autocmd = false,
 			})
@@ -16,6 +17,7 @@ return {
 			local treesitter = require("nvim-treesitter.configs")
 
 			-- configure treesitter
+			---@diagnostic disable-next-line: missing-fields
 			treesitter.setup({
 				auto_install = true,
 				highlight = {
