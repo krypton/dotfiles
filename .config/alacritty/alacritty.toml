@@ -14,9 +14,10 @@ padding = { x = 16, y = 14 }
 history = 100000
 
 [font]
-normal.family = "JetBrainsMono Nerd Font Propo"
-size = 13.0
-offset.y = 2
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+size = 12
 
 # [keyboard]
 # bindings = [
