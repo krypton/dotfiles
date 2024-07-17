@@ -2,7 +2,7 @@
 TERM = "xterm-256color"
 
 [window]
-dimensions.columns = 216
+dimensions.columns = 212
 dimensions.lines = 59
 position.x = 0
 position.y = 0
