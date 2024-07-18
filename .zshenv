@@ -66,16 +66,6 @@ if [[ -d /usr/share/git/diff-highlight ]] && [ $OS = 'linux' ]; then
   export PATH="/usr/share/git/diff-highlight:$PATH"
 fi
 
-# Load kitty into PATH on MacOS
-if [[ -d /Applications/kitty.app/Contents/MacOS ]] && [ $OS = 'macos' ]; then
-  export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
-fi
-
-# Load kitty into PATH on Linux
-if [[ -d ~/.local/kitty.app/bin ]] && [ $OS = 'linux' ]; then
-  export PATH="~/.local/kitty.app/bin:$PATH"
-fi
-
 # Work related
 if [ $OS = 'macos' ]; then
   export USER_SHELLFILE="$HOME/work/$HOST.sh"

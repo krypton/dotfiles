@@ -127,15 +127,6 @@ if [ $(command -v "op") ]; then
   eval "$(op completion zsh)"; compdef _op op
 fi
 
-# kitty shell integration
-# this needs to be manually laoded to work with terminal multiplexers
-if test -n "$KITTY_INSTALLATION_DIR"; then
-    export KITTY_SHELL_INTEGRATION="enabled"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-    kitty-integration
-    unfunction kitty-integration
-fi
-
 # load zoxide as cd replacement
 if [ $(command -v "zoxide") ]; then
   eval "$(zoxide init --cmd cd zsh)"
