@@ -114,8 +114,6 @@ fi
 
 # work related stuff
 [[ -s $USER_SHELLFILE ]] && source $USER_SHELLFILE
-[[ -s $DEPLOYER_SCRIPT ]] && source $DEPLOYER_SCRIPT
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # rbenv init
 if [ $(command -v "rbenv") ]; then

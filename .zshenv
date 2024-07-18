@@ -69,8 +69,6 @@ fi
 # Work related
 if [ $OS = 'macos' ]; then
   export USER_SHELLFILE="$HOME/work/$HOST.sh"
-  export DEPLOYER_SCRIPT="$HOME/work/deployer/deployer.sh"
-  export SDKMAN_DIR="$HOME/.sdkman"
 
  # zsh-syntax-highlighting
   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/highlighters"
