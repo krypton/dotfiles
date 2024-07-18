@@ -115,9 +115,9 @@ fi
 # work related stuff
 [[ -s $USER_SHELLFILE ]] && source $USER_SHELLFILE
 
-# rbenv init
-if [ $(command -v "rbenv") ]; then
-  eval "$(rbenv init - zsh)"
+# asdf init
+if [ -d "$(brew --prefix asdf)/libexec" ]; then
+  source "$(brew --prefix asdf)/libexec/asdf.sh"
 fi
 
 # 1password CLI completion
