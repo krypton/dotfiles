@@ -116,7 +116,7 @@ fi
 [[ -s $USER_SHELLFILE ]] && source $USER_SHELLFILE
 
 # asdf init
-if [ -d "$(brew --prefix asdf)/libexec" ]; then
+if type brew &>/dev/null && [ -d "$(brew --prefix asdf)/libexec" ]; then
   source "$(brew --prefix asdf)/libexec/asdf.sh"
 fi
 
