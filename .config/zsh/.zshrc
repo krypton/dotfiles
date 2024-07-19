@@ -89,8 +89,6 @@ source "$ZSH_PLUGINS_HOME/zsh-history-substring-search/zsh-history-substring-sea
 
 # fzf completion
 if [ $(command -v "fzf") ]; then
-  [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh # fzf shell completion for Linux
-  [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh # fzf key bindings for Linux
   source <(fzf --zsh)
 fi
 
