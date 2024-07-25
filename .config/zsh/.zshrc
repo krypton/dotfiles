@@ -60,7 +60,9 @@ fi
 
 autoload -Uz compinit && compinit
 
-autoload -Uz prompt_purification_setup && prompt_purification_setup
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/zen.toml)"
+fi
 
 # Enable vi mode
 bindkey -v
