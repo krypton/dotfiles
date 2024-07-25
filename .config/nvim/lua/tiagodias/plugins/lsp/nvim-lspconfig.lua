@@ -183,7 +183,6 @@ return {
 				setup_diagnostics(client, buffer)
 				on_attach(client, buffer)
 			end,
-			cmd_env = { BUNDLE_GEMFILE = "/Users/tiagodias/work/.ruby-lsp/Gemfile" },
 			cmd = { "ruby-lsp" },
 			init_options = {
 				formatter = "rubocop",

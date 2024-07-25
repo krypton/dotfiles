@@ -10,30 +10,6 @@ setopt PUSHD_SILENT
 
 unsetopt CASE_GLOB
 
-# rose-pine-moon for linux tty
-if [ "$TERM" = "linux" ]; then
-	/bin/echo -e "
-	\e]P0#232136
-	\e]P1#eb6f92
-	\e]P2#9ccfd8
-	\e]P3#f6c177
-	\e]P4#3e8fb0
-	\e]P5#c4a7e7
-	\e]P6#ea9a97
-	\e]P7#e0def4
-	\e]P8#393552
-	\e]P9#eb6f92
-	\e]PA#9ccfd8
-	\e]PB#f6c177
-	\e]PC#3e8fb0
-	\e]PD#c4a7e7
-	\e]PE#ea9a97
-	\e]PF#e0def4
-	"
-	# get rid of artifacts
-	clear
-fi
-
 # Enable vi-like navigation on auto-completion menu
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -129,3 +105,26 @@ fi
 if [ $(command -v "zoxide") ]; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# load fzf-tab https://github.com/Aloxaf/fzf-tab
+source "$ZDOTDIR/external/fzf-tab/fzf-tab.plugin.zsh"
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'

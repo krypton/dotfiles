@@ -1,3 +1,6 @@
 [submodule ".config/zsh/external/zsh-overmind-autocomplete"]
 	path = .config/zsh/external/zsh-overmind-autocomplete
 	url = https://github.com/crawlingcity/zsh-overmind-autocomplete.git
+[submodule ".config/zsh/external/fzf-tab"]
+	path = .config/zsh/external/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
