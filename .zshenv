@@ -68,7 +68,7 @@ fi
 
 # Work related
 if [ $OS = 'macos' ]; then
-  export USER_SHELLFILE="$HOME/work/$HOST.sh"
+  export USER_SHELLFILE="$HOME/Developer/$HOST.sh"
 
  # zsh-syntax-highlighting
   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/highlighters"

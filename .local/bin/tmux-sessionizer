@@ -4,9 +4,9 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected_paths=$(fd . ~/personal --type d --exact-depth 1 --exclude .bundle --hidden)
-    if [[ -d ~/work ]]; then
+    if [[ -d ~/Developer ]]; then
         selected_paths+=$(echo " ")
-        selected_paths+=$(fd . ~/work --type d --exact-depth 1 --exclude .bundle --exclude .ruby-lsp --exclude '*postgres*' --hidden)
+        selected_paths+=$(fd . ~/Developer --type d --exact-depth 1 --exclude .bundle --exclude .ruby-lsp --exclude '*postgres*' --hidden)
     fi
     selected=$(echo $selected_paths | tr " " "\n" | fzf)
 fi
