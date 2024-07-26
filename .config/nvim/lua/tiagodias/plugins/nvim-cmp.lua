@@ -46,6 +46,7 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
+				{ name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
@@ -55,8 +56,11 @@ return {
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
 				format = lspkind.cmp_format({
-					maxwidth = 50,
+					maxwidth = function()
+						return math.floor(0.45 * vim.o.columns)
+					end,
 					ellipsis_char = "...",
+					symbol_map = { Copilot = "" },
 				}),
 			},
 			experimental = {
