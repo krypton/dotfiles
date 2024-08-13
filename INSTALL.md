@@ -12,7 +12,7 @@ neovim
 node
 pass
 postgresql
-ranger
+yazi
 rbenv
 rbenv-gemset
 ripgrep

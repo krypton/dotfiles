@@ -73,6 +73,3 @@ if [ $OS = 'macos' ]; then
  # zsh-syntax-highlighting
   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/highlighters"
 fi
-
-# Stop to load default and user config for ranger
-export RANGER_LOAD_DEFAULT_RC=FALSE
