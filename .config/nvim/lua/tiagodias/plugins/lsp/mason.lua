@@ -46,7 +46,6 @@ return {
 				"delve", -- go debugger https://github.com/go-delve/delve
 				"goimports", -- go auto import or remove import statements https://pkg.go.dev/golang.org/x/tools/cmd/goimports
 				"gofumpt", -- go strictier formatter than gofmt https://github.com/mvdan/gofumpt
-				-- "rubocop", -- ruby formatter and linter
 			},
 		})
 	end,

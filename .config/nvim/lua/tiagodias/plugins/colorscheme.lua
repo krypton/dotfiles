@@ -9,6 +9,10 @@ return {
 			styles = {
 				floats = "transparent",
 			},
+			on_colors = function(colors)
+				local util = require("tokyonight.util")
+				colors.fg_gutter = util.lighten(colors.fg_gutter, 0.8)
+			end,
 		})
 		vim.cmd.colorscheme("tokyonight-moon")
 	end,

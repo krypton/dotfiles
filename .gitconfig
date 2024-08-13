@@ -34,9 +34,9 @@
 [alias]
   wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 [pull]
-	rebase = false
-[includeIf "gitdir:~/work/"]
-    path = ~/work/.gitconfig.inc
+	rebase = true
+[includeIf "gitdir:~/Developer/"]
+    path = ~/Developer/.gitconfig.inc
 [interactive]
 	diffFilter = delta --color-only
 [delta]

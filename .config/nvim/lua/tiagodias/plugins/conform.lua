@@ -25,7 +25,6 @@ return {
 				["handlebars"] = { "prettier" },
 				["lua"] = { "stylua" },
 				["go"] = { "goimports", "gofumpt" },
-				-- ruby = { "rubocop" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
