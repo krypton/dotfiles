@@ -29,6 +29,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = "vertical",
 				vimgrep_arguments = vimgrep_arguments,
 				file_ignore_patterns = { "%.git/" },
 				path_display = { "truncate " },
@@ -37,6 +38,9 @@ return {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 					},
+				},
+				preview = {
+					treesiter = true,
 				},
 			},
 			pickers = {

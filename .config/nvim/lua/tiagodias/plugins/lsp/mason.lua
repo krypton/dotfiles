@@ -13,7 +13,7 @@ return {
 			"lua_ls",
 			"cssls",
 			"html",
-			"tsserver",
+			"ts_ls",
 			"gopls",
 			"taplo",
 		}
