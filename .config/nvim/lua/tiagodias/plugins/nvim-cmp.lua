@@ -46,12 +46,13 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "copilot", group_index = 2 },
+				{ name = "obsidian" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "cmdline" },
+				{ name = "copilot", group_index = 2 },
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
