@@ -23,30 +23,19 @@ return {
 			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 		local on_attach = function(client, bufnr)
-			vim.keymap.set(
-				"n",
-				"gS",
-				":Telescope lsp_document_symbols<CR>",
-				{ buffer = bufnr, desc = "Show document symbols" }
-			)
-			vim.keymap.set("n", "gR", ":Telescope lsp_references<CR>", { buffer = bufnr, desc = "Show LSP references" })
+			vim.keymap.set("n", "gR", ":FzfLua lsp_references<CR>", { buffer = bufnr, desc = "Show LSP references" })
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
-			vim.keymap.set(
-				"n",
-				"gd",
-				":Telescope lsp_definitions<CR>",
-				{ buffer = bufnr, desc = "Show LSP definitions" }
-			)
+			vim.keymap.set("n", "gd", ":FzfLua lsp_definitions<CR>", { buffer = bufnr, desc = "Show LSP definitions" })
 			vim.keymap.set(
 				"n",
 				"gi",
-				":Telescope lsp_implementations<CR>",
+				":FzfLua lsp_implementations<CR>",
 				{ buffer = bufnr, desc = "Show LSP implementations" }
 			)
 			vim.keymap.set(
 				"n",
 				"gt",
-				":Telescope lsp_type_definitions<CR>",
+				":FzfLua lsp_typedefs<CR>",
 				{ buffer = bufnr, desc = "Show LSP type definitions" }
 			)
 			vim.keymap.set(
