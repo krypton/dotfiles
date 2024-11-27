@@ -118,6 +118,38 @@ return {
 			})
 		end
 
+		local function add_ruby_deps_command(client, bufnr)
+			vim.api.nvim_buf_create_user_command(bufnr, "ShowRubyDeps", function(opts)
+				local params = vim.lsp.util.make_text_document_params()
+				local showAll = opts.args == "all"
+
+				client.request("rubyLsp/workspace/dependencies", params, function(error, result)
+					if error then
+						print("Error showing deps: " .. error)
+						return
+					end
+
+					local qf_list = {}
+					for _, item in ipairs(result) do
+						if showAll or item.dependency then
+							table.insert(qf_list, {
+								text = string.format("%s (%s) - %s", item.name, item.version, item.dependency),
+								filename = item.path,
+							})
+						end
+					end
+
+					vim.fn.setqflist(qf_list)
+					vim.cmd("copen")
+				end, bufnr)
+			end, {
+				nargs = "?",
+				complete = function()
+					return { "all" }
+				end,
+			})
+		end
+
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -181,10 +213,32 @@ return {
 			capabilities = capabilities,
 			on_attach = function(client, buffer)
 				setup_diagnostics(client, buffer)
+				add_ruby_deps_command(client, buffer)
 				on_attach(client, buffer)
 			end,
+			mason = false,
 			cmd = { "ruby-lsp" },
 			init_options = {
+				enabledFeatures = {
+					"codeActions",
+					"codeLens",
+					"completion",
+					"definition",
+					"diagnostics",
+					"documentHighlights",
+					"documentLink",
+					"documentSymbols",
+					"foldingRanges",
+					"formatting",
+					"hover",
+					"inlayHint",
+					"onTypeFormatting",
+					"selectionRanges",
+					"semanticHighlighting",
+					"signatureHelp",
+					"typeHierarchy",
+					"workspaceSymbol",
+				},
 				formatter = "rubocop",
 			},
 		})
