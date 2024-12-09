@@ -4,9 +4,6 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		-- Useful status updates for LSP
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
 		-- Additional lua configuration, makes nvim stuff amazing!
 		"folke/neodev.nvim",
@@ -14,13 +11,12 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local navic = require("nvim-navic")
+		local ui_windows = require("lspconfig.ui.windows")
 
-		require("lspconfig.ui.windows").default_options.border = "rounded"
+		ui_windows.default_options.border = "rounded"
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-		vim.lsp.handlers["textDocument/signatureHelp"] =
-			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = "rounded" })
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded" })
 
 		local on_attach = function(client, bufnr)
 			vim.keymap.set("n", "gR", ":FzfLua lsp_references<CR>", { buffer = bufnr, desc = "Show LSP references" })
@@ -45,12 +41,9 @@ return {
 				{ buffer = bufnr, desc = "See available code actions" }
 			)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
-			vim.keymap.set(
-				"n",
-				"K",
-				vim.lsp.buf.hover,
-				{ buffer = bufnr, desc = "Show documentation for what is under cursor" }
-			)
+			vim.keymap.set("n", "K", function()
+				vim.lsp.buf.hover({ border = "rounded" })
+			end, { buffer = bufnr, desc = "Show documentation for what is under cursor" })
 			vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { buffer = bufnr, desc = "Restart LSP" })
 
 			-- Create a command `:Format` local to the LSP buffer
@@ -60,7 +53,7 @@ return {
 
 			-- Get nvim-navic (a dependecy of barbecue) working with multiple tabs
 			if client.server_capabilities.documentSymbolProvider then
-				navic.attach(client, bufnr)
+				require("nvim-navic").attach(client, bufnr)
 			end
 		end
 
@@ -152,15 +145,15 @@ return {
 		vim.diagnostic.config({
 			virtual_text = true,
 			float = { border = "rounded" },
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.HINT] = "󰠠 ",
+					[vim.diagnostic.severity.INFO] = " ",
+				},
+			},
 		})
-
-		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
 
 		-- Neovim api and docs support for lua
 		require("neodev").setup()

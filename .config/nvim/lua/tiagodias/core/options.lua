@@ -22,7 +22,7 @@ vim.opt.relativenumber = true
 -- allow the mouse to be used in neovim
 vim.opt.mouse = "a"
 
--- we don't need to see things like -- INSERT -- anymore, this is showed on lualine
+-- we don't need to see things like -- INSERT -- anymore, this is showed on statusline plugin
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.

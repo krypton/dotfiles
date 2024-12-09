@@ -7,6 +7,7 @@ return {
 			style = "moon",
 			transparent = true,
 			styles = {
+				sidebars = "transparent",
 				floats = "transparent",
 			},
 			on_colors = function(colors)

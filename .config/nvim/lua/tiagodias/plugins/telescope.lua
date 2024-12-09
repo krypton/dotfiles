@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	enabled = false,
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -53,27 +54,27 @@ return {
 		telescope.load_extension("fzf")
 
 		-- set keymaps
-		-- vim.keymap.set(
-		-- 	"n",
-		-- 	"<leader>s/",
-		-- 	builtin.current_buffer_fuzzy_find,
-		-- 	{ desc = "[S]earch in current buffer [/]" }
-		-- )
-		-- vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [f]iles in cwd" })
-		-- vim.keymap.set("n", "<leader>ss", builtin.live_grep, { desc = "[S]earch [s]tring in cwd" })
-		-- vim.keymap.set("n", "<leader>sc", builtin.grep_string, { desc = "[S]earch string under [c]ursor in cwd" })
-		-- vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [b]uffers" })
-		-- vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [g]it files" })
-		-- vim.keymap.set("n", "<leader>sh", function()
-		-- 	builtin.help_tags({
-		-- 		previewer = false,
-		-- 		layout_strategy = "vertical",
-		-- 		layout_config = {
-		-- 			width = 0.5,
-		-- 		},
-		-- 	})
-		-- end, { desc = "[S]earch [h]elp" })
-		-- vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [d]iagnostics" })
-		-- vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [r]esume" })
+		vim.keymap.set(
+			"n",
+			"<leader>s/",
+			builtin.current_buffer_fuzzy_find,
+			{ desc = "[S]earch in current buffer [/]" }
+		)
+		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [f]iles in cwd" })
+		vim.keymap.set("n", "<leader>ss", builtin.live_grep, { desc = "[S]earch [s]tring in cwd" })
+		vim.keymap.set("n", "<leader>sc", builtin.grep_string, { desc = "[S]earch string under [c]ursor in cwd" })
+		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [b]uffers" })
+		vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [g]it files" })
+		vim.keymap.set("n", "<leader>sh", function()
+			builtin.help_tags({
+				previewer = false,
+				layout_strategy = "vertical",
+				layout_config = {
+					width = 0.5,
+				},
+			})
+		end, { desc = "[S]earch [h]elp" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [d]iagnostics" })
+		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [r]esume" })
 	end,
 }
