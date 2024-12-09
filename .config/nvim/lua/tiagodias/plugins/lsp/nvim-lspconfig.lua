@@ -24,6 +24,12 @@ return {
 			vim.keymap.set("n", "gd", ":FzfLua lsp_definitions<CR>", { buffer = bufnr, desc = "Show LSP definitions" })
 			vim.keymap.set(
 				"n",
+				"gs",
+				":FzfLua lsp_document_symbols<CR>",
+				{ buffer = bufnr, desc = "Show LSP document symbols" }
+			)
+			vim.keymap.set(
+				"n",
 				"gi",
 				":FzfLua lsp_implementations<CR>",
 				{ buffer = bufnr, desc = "Show LSP implementations" }

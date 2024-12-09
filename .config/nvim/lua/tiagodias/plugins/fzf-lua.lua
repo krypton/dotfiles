@@ -5,6 +5,9 @@ return {
 	config = function()
 		local fzf_lua = require("fzf-lua")
 		fzf_lua.setup({
+			winopts = {
+				fullscreen = true,
+			},
 			grep = {
 				rg_opts = [[--hidden -g "!.git" --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e]],
 			},
