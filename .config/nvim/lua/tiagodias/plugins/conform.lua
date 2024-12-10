@@ -27,7 +27,7 @@ return {
 				["go"] = { "goimports", "gofumpt" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_format = "prefer",
 				async = false,
 				timeout_ms = 1000,
 			},
