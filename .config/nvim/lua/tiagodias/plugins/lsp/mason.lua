@@ -15,6 +15,7 @@ return {
 			"ts_ls",
 			"gopls",
 			"taplo",
+			"marksman",
 		}
 
 		mason.setup({

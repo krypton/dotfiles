@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+		{ 'saghen/blink.cmp' },
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 
 		-- Additional lua configuration, makes nvim stuff amazing!
@@ -10,7 +10,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local ui_windows = require("lspconfig.ui.windows")
 
 		ui_windows.default_options.border = "rounded"
@@ -138,15 +137,6 @@ return {
 			})
 		end
 
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		-- capabilities.textDocument.completion.completionItem.snippetSupport = true
-		-- capabilities.textDocument.foldingRange = {
-		-- dynamicRegistration = false,
-		-- lineFoldingOnly = true,
-		-- }
-
 		-- This enables LSP diagnostics to be shown inline
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -165,6 +155,8 @@ return {
 		require("neodev").setup()
 
 		vim.lsp.set_log_level("debug")
+
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 		-- configure html server
 		lspconfig["html"].setup({

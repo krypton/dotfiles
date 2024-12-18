@@ -6,9 +6,8 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
-		"hrsh7th/nvim-cmp",
-		"nvim-telescope/telescope.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"ibhagwan/fzf-lua",
 	},
 	opts = {
 		workspaces = {
@@ -36,7 +35,7 @@ return {
 		-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 		completion = {
 			-- Set to false to disable completion.
-			nvim_cmp = true,
+			nvim_cmp = false,
 			-- Trigger completion at 2 chars.
 			min_chars = 2,
 		},
@@ -60,5 +59,8 @@ return {
 			end
 			return tostring(os.time()) .. "-" .. suffix
 		end,
+		picker = {
+			name = "fzf-lua",
+		}
 	},
 }
