@@ -1,6 +1,7 @@
-return {
+local sources = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer', 'copilot' }
+local M = {
 	'saghen/blink.cmp',
-	lazy = true,
+	lazy = false,
 	dependencies = {
 		{ 'rafamadriz/friendly-snippets' },
 		{ "giuxtaposition/blink-cmp-copilot" },
@@ -14,7 +15,7 @@ return {
 			['<C-j>'] = { 'select_next', 'fallback' },
 		},
 		appearance = {
-			use_nvim_cmp_as_default = true,
+			use_nvim_cmp_as_default = false,
 			nerd_font_variant = 'mono',
 			kind_icons = {
 				Copilot = "",
@@ -61,7 +62,7 @@ return {
 			jump = function(direction) require('luasnip').jump(direction) end,
 		},
 		sources = {
-			default = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer', 'copilot' },
+			default = sources,
 			providers = {
 				copilot = {
 					name = "copilot",
@@ -80,7 +81,7 @@ return {
 				},
 			},
 			completion = {
-				enabled_providers = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer', 'copilot' },
+				enabled_providers = sources,
 			},
 		},
 		signature = {
@@ -100,3 +101,5 @@ return {
 	},
 	opts_extend = { "sources.default" }
 }
+
+return M
