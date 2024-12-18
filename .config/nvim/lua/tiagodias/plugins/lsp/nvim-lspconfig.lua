@@ -4,9 +4,6 @@ return {
 	dependencies = {
 		{ 'saghen/blink.cmp' },
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-
-		-- Additional lua configuration, makes nvim stuff amazing!
-		"folke/neodev.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -150,9 +147,6 @@ return {
 				},
 			},
 		})
-
-		-- Neovim api and docs support for lua
-		require("neodev").setup()
 
 		vim.lsp.set_log_level("debug")
 
