@@ -1,4 +1,4 @@
-return {
+local M = {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -11,11 +11,14 @@ return {
 			"sindrets/diffview.nvim", -- optional - Diff integration
 			"ibhagwan/fzf-lua", -- optional
 		},
-		config = function()
-			require("neogit").setup({})
-
-			-- Keybindings
-			vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>")
-		end,
 	},
 }
+
+M[2].config = function()
+	require("neogit").setup({})
+
+	-- Keybindings
+	vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>")
+end
+
+return M
