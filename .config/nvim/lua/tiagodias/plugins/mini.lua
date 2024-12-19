@@ -21,5 +21,8 @@ return {
 
 		-- Draws a line between the start and end of textobjects
 		require("mini.indentscope").setup()
+
+		-- Extend and create a/i textobjects
+		require('mini.ai').setup()
 	end,
 }
