@@ -6,10 +6,20 @@ return {
 		local fzf_lua = require("fzf-lua")
 		fzf_lua.setup({
 			winopts = {
-				fullscreen = true,
+				split = 'belowright new',
+				preview = {
+					layout = 'vertical',
+				}
 			},
 			grep = {
-				rg_opts = [[--hidden -g "!.git" --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e]],
+				rg_opts =
+				[[--hidden -g "!.git" --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e]],
+			},
+			keymap = {
+				fzf = {
+					-- use cltr-q to select all items and convert to quickfix list
+					["ctrl-q"] = "select-all+accept",
+				},
 			},
 		})
 
