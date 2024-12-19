@@ -37,7 +37,6 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 vim.keymap.set({ "n", "v" }, "<leader>P", '"+P')
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>")
 
 vim.keymap.set("n", "<Up>", "")
 vim.keymap.set("n", "<Down>", "")
