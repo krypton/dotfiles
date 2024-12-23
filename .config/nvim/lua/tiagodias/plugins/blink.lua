@@ -1,4 +1,3 @@
-local sources = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer', 'copilot', 'lazydev' }
 local M = {
 	{
 		"folke/lazydev.nvim",
@@ -71,7 +70,7 @@ local M = {
 				jump = function(direction) require('luasnip').jump(direction) end,
 			},
 			sources = {
-				default = sources,
+				default = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer', 'copilot', 'lazydev' },
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -89,11 +88,8 @@ local M = {
 						end,
 					},
 					-- dont show LuaLS require statements when lazydev has items
-					lsp = { fallback_for = { "lazydev" } },
-					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-				},
-				completion = {
-					enabled_providers = sources,
+					lsp = { fallbacks = { "lazydev" } },
+					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100, },
 				},
 			},
 			signature = {
