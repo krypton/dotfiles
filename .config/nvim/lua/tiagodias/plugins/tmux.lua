@@ -6,7 +6,12 @@ local M = {
 M.config = function()
 	local tmux = require("tmux")
 
-	tmux.setup()
+	tmux.setup({
+		-- Disable copy_sync, for me freezes my neovim navigation between splits
+		copy_sync = {
+			enable = false,
+		}
+	})
 end
 
 return M
