@@ -5,9 +5,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- netrw global settings
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+vim.g.netrw_banner = 0       -- gets rid of the annoying banner for netrw
+vim.g.netrw_browse_split = 4 -- open in prior window
+vim.g.netrw_altv = 1         -- change from left splitting to right splitting
+vim.g.netrw_liststyle = 3    -- tree style view in netrw
+
 vim.g.skip_ts_context_commentstring_module = true
 
 -- enables the experimental Lua module loader
