@@ -18,6 +18,7 @@ local M = {
 			{ "L3MON4D3/LuaSnip",                version = "v2.*" },
 			{ "folke/lazydev.nvim", },
 		},
+		version = "v0.*",
 		opts = {
 			keymap = { preset = "default" },
 			snippets = {
