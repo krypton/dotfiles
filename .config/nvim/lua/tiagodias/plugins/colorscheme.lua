@@ -16,6 +16,9 @@ M.config = function()
 			local util = require("tokyonight.util")
 			colors.fg_gutter = util.lighten(colors.fg_gutter, 0.8)
 		end,
+		on_highlights = function(highlights, colors)
+			highlights["Folded"].bg = colors.bg_highlight
+		end
 	})
 	vim.cmd.colorscheme("tokyonight-moon")
 end

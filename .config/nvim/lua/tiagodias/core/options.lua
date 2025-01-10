@@ -15,6 +15,8 @@ vim.g.skip_ts_context_commentstring_module = true
 -- enables the experimental Lua module loader
 vim.loader.enable()
 
+vim.opt.smoothscroll = true
+
 -- make line numbers default
 vim.opt.number = true
 
@@ -134,3 +136,7 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+-- Folding options
+-- Default: foldtext()
+vim.opt.foldtext = ""
