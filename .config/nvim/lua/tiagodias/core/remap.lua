@@ -18,7 +18,7 @@ vim.keymap.set("n", "<C-s>", "<C-w>v") -- splits vertically
 vim.keymap.set("n", "<leader><leader>x", ":source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'") -- move line down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv'") -- move line up

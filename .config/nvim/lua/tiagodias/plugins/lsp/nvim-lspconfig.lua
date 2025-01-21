@@ -15,33 +15,7 @@ return {
 		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded" })
 
 		local on_attach = function(client, bufnr)
-			vim.keymap.set("n", "gR", ":FzfLua lsp_references<CR>", { buffer = bufnr, desc = "Show LSP references" })
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
-			vim.keymap.set("n", "gd", ":FzfLua lsp_definitions<CR>", { buffer = bufnr, desc = "Show LSP definitions" })
-			vim.keymap.set(
-				"n",
-				"gs",
-				":FzfLua lsp_document_symbols<CR>",
-				{ buffer = bufnr, desc = "Show LSP document symbols" }
-			)
-			vim.keymap.set(
-				"n",
-				"gi",
-				":FzfLua lsp_implementations<CR>",
-				{ buffer = bufnr, desc = "Show LSP implementations" }
-			)
-			vim.keymap.set(
-				"n",
-				"gt",
-				":FzfLua lsp_typedefs<CR>",
-				{ buffer = bufnr, desc = "Show LSP type definitions" }
-			)
-			vim.keymap.set(
-				{ "n", "v" },
-				"<leader>ca",
-				vim.lsp.buf.code_action,
-				{ buffer = bufnr, desc = "See available code actions" }
-			)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
 			vim.keymap.set("n", "K", function()
 				vim.lsp.buf.hover({ border = "rounded" })

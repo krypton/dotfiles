@@ -26,6 +26,9 @@ M.config = function()
 
 	-- Extend and create a/i textobjects
 	require('mini.ai').setup()
+
+	-- File system navigation/manipulation
+	require('mini.files').setup()
 end
 
 return M
