@@ -166,6 +166,7 @@ return {
 			end,
 			mason = false,
 			cmd = { "ruby-lsp" },
+			root_dir = require('lspconfig.util').root_pattern('.git', 'Gemfile'),
 			init_options = {
 				enabledFeatures = {
 					"codeActions",
