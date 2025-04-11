@@ -22,7 +22,11 @@ M.config = function()
 	vim.notify = require("mini.notify").make_notify()
 
 	-- Draws a line between the start and end of textobjects
-	require("mini.indentscope").setup()
+	require("mini.indentscope").setup({
+		draw = {
+			animation = require("mini.indentscope").gen_animation.none(),
+		},
+	})
 
 	-- Extend and create a/i textobjects
 	require('mini.ai').setup()

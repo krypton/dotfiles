@@ -8,7 +8,7 @@ local M = {
 		-- refer to the configuration section below
 		picker = {
 			enabled = true,
-			layout = "ivy",
+			layout = "vertical",
 		}
 	},
 	keys = {
