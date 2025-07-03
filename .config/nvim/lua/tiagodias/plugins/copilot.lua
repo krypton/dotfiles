@@ -10,8 +10,15 @@ return {
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
-				-- Use specific Node.js version from asdf (must be > 20)
-				copilot_node_command = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/23.11.0/bin/node",
+				-- Use specific Node.js version from asdf if available, else fallback to system node
+				copilot_node_command = (function()
+					local asdf_node = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/23.11.0/bin/node"
+					if vim.loop.fs_stat(asdf_node) then
+						return asdf_node
+					else
+						return "node"
+					end
+				end)(),
 			})
 		end,
 	},
