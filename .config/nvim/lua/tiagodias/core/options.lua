@@ -63,7 +63,7 @@ vim.opt.splitright = true
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
--- Preview substitutions live, as you type!
+-- Preview substitutions live in a seperate split!
 vim.opt.inccommand = "split"
 
 -- Highlight while typing a search pattern
@@ -121,7 +121,7 @@ vim.opt.numberwidth = 4
 -- display lines as one long line
 vim.opt.wrap = false
 -- minimal number of screen lines to keep above and below the cursor
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 999
 -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 vim.opt.sidescrolloff = 10
 vim.opt.linebreak = true
@@ -140,3 +140,5 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 -- Folding options
 -- Default: foldtext()
 vim.opt.foldtext = ""
+-- Enable virtual edit for visual block mode
+vim.opt.virtualedit = "block"

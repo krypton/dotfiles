@@ -54,3 +54,11 @@
 	pushInsteadOf = "https://github.com/"
 [branch]
 	sort = -committerdate
+[init]
+	defaultbranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

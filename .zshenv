@@ -52,6 +52,11 @@ export GREP_OPTIONS='--color=auto'
 export PATH="$XDG_BIN_HOME:$PATH"
 export PATH="$XDG_DATA_HOME/nvim/mason/bin:$PATH"
 
+# Add Go bin folder to PATH
+if [[ -d "$HOME/go" ]]; then
+  export PATH="$HOME/go/bin:$PATH"
+fi
+
 # Homebrew into PATH
 if [[ -d /opt/homebrew/bin ]] && [ $OS = 'macos' ]; then
   export PATH="/opt/homebrew/bin:$PATH"
