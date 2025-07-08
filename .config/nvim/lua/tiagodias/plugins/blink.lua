@@ -4,6 +4,7 @@ local M = {
 		dependencies = {
 			{ "rafamadriz/friendly-snippets" },
 			{ "giuxtaposition/blink-cmp-copilot" },
+			{ "Kaiser-Yang/blink-cmp-avante" }
 		},
 		version = "v0.*",
 		opts = function(_, opts)
@@ -11,7 +12,7 @@ local M = {
 
 			opts.sources = {
 				-- Lack of obsidian as a source
-				default = { "lsp", "path", "snippets", "buffer", "copilot" },
+				default = { "lsp", "path", "snippets", "buffer", "copilot", "avante" },
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -29,6 +30,13 @@ local M = {
 							return items
 						end,
 					},
+					avante = {
+						module = 'blink-cmp-avante',
+						name = 'Avante',
+						opts = {
+							-- options for blink-cmp-avante
+						}
+					}
 				},
 			}
 
