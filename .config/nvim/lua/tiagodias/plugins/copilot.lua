@@ -13,17 +13,12 @@ return {
 				panel = { enabled = false },
 				-- Use specific Node.js version from asdf if available, else fallback to system node
 				copilot_node_command = (function()
-					local handle = io.popen("asdf current nodejs 2>/dev/null")
-					local result = handle and handle:read("*a") or ""
-					if handle then handle:close() end
-					local version = result:match("(%d+%.%d+%.%d+)")
-					if version then
-						local asdf_node = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/" .. version .. "/bin/node"
-						if vim.loop.fs_stat(asdf_node) then
-							return asdf_node
-						end
+					local asdf_node = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/23.11.0/bin/node"
+					if vim.loop.fs_stat(asdf_node) then
+						return asdf_node
+					else
+						return "node"
 					end
-					return "node"
 				end)(),
 			})
 		end,
