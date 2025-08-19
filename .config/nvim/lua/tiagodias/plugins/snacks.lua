@@ -9,7 +9,10 @@ local M = {
 		picker = {
 			enabled = true,
 			layout = "vertical",
-		}
+		},
+		input = {
+			enabled = true,
+		},
 	},
 	keys = {
 		{ "<leader>sf", function() Snacks.picker.files({ hidden = true }) end,     desc = "[S]earch [f]iles in cwd" },

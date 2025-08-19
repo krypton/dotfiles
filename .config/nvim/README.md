@@ -122,7 +122,6 @@ NVIM_APPNAME=krypton/dotfiles/.config/nvim nvim
 
 - [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 - [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
-- [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 
 ## Language Servers
 
