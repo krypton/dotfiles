@@ -1,8 +1,12 @@
+---@diagnostic disable: undefined-global
+
 local M = {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		config = true,
+		config = {
+			current_line_blame = true,
+		},
 	},
 	{
 		"NeogitOrg/neogit",
