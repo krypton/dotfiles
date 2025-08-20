@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
@@ -122,7 +124,7 @@ return {
 			},
 		})
 
-		vim.lsp.set_log_level("debug")
+		vim.lsp.log.set_level(vim.log.levels.DEBUG)
 
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
