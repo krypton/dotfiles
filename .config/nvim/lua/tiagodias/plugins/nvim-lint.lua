@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local M = {
 	"mfussenegger/nvim-lint",
 	lazy = true,

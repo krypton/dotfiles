@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local M = {
 	"stevearc/conform.nvim",
 	lazy = true,

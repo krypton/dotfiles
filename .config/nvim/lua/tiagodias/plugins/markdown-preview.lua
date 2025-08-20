@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local M = {
 	"iamcco/markdown-preview.nvim",
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

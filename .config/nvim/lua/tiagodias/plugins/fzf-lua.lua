@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local M = {
 	"ibhagwan/fzf-lua",
 	-- optional for icon support

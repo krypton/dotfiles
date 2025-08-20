@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local M = {
 	"folke/tokyonight.nvim",
 	lazy = false,
