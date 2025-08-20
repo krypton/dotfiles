@@ -1,5 +1,7 @@
+---@diagnostic disable: undefined-global
+
 local M = {
-	"epwalsh/obsidian.nvim",
+	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = true,
 	ft = "markdown",
@@ -7,7 +9,7 @@ local M = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		"ibhagwan/fzf-lua",
+		"folke/snacks.nvim",
 	},
 	opts = {
 		workspaces = {
@@ -18,6 +20,8 @@ local M = {
 		},
 
 		log_level = vim.log.levels.INFO,
+
+		legacy_commands = false,
 
 		daily_notes = {
 			-- Optional, if you keep daily notes in a separate directory.
@@ -34,8 +38,8 @@ local M = {
 
 		-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 		completion = {
-			-- Set to false to disable completion.
 			nvim_cmp = false,
+			blink = true,
 			-- Trigger completion at 2 chars.
 			min_chars = 2,
 		},
@@ -60,7 +64,7 @@ local M = {
 			return tostring(os.time()) .. "-" .. suffix
 		end,
 		picker = {
-			name = "fzf-lua",
+			name = "snacks.pick",
 		}
 	},
 }
