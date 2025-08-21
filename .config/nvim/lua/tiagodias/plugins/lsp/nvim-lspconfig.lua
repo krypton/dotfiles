@@ -1,9 +1,10 @@
+---@diagnostic disable: undefined-global
+
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "saghen/blink.cmp" },
-		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
 		local ui_windows = require("lspconfig.ui.windows")
