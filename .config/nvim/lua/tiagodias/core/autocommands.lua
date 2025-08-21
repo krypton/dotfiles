@@ -88,3 +88,21 @@ vim.api.nvim_create_autocmd('User', {
 		map_split(buf_id, '<C-v>', 'belowright vertical')
 	end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup("binhuman-lsp-attach", {}),
+	callback = function(args)
+		local bufnr = args.buf
+
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover({ border = "rounded" })
+		end, { buffer = bufnr, desc = "Show documentation for what is under cursor" })
+
+		-- Create a command `:Format` local to the LSP buffer
+		vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+			vim.lsp.buf.format({ bufnr = bufnr })
+		end, { desc = "Format current buffer with LSP" })
+	end,
+})
