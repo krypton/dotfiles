@@ -43,14 +43,3 @@ vim.keymap.set("n", "<Up>", "")
 vim.keymap.set("n", "<Down>", "")
 vim.keymap.set("n", "<Left>", "")
 vim.keymap.set("n", "<Right>", "")
-vim.keymap.set("n", "<CR>", function()
-	-- Get the current line number
-	local line = vim.fn.line(".")
-	-- Get the fold level of the current line
-	local foldlevel = vim.fn.foldlevel(line)
-	if foldlevel == 0 then
-		vim.notify("No fold found", vim.log.levels.INFO)
-	else
-		vim.cmd("normal! za")
-	end
-end, { desc = "[P]Toggle fold" })

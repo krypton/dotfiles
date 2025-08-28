@@ -33,6 +33,26 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+-- Use Enter to fold except on quickfix
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	callback = function(args)
+		-- Check if current buffer is NOT a quickfix
+		if vim.bo[args.buf].buftype ~= 'quickfix' then
+			vim.keymap.set("n", "<CR>", function()
+				-- Get the current line number
+				local line = vim.fn.line(".")
+				-- Get the fold level of the current line
+				local foldlevel = vim.fn.foldlevel(line)
+				if foldlevel == 0 then
+					vim.notify("No fold found", vim.log.levels.INFO)
+				else
+					vim.cmd("normal! za")
+				end
+			end, { buffer = true, desc = "[P]Toggle fold" })
+		end
+	end,
+})
+
 -- Activates trailing whitespace on buffer save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
@@ -99,6 +119,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover({ border = "rounded" })
 		end, { buffer = bufnr, desc = "Show documentation for what is under cursor" })
+		-- Add diagnostics to quickfix keybinding
+		vim.keymap.set('n', '<leader>qd', function()
+			vim.diagnostic.setqflist({ open = true })
+		end, { buffer = bufnr, desc = 'Open diagnostics in quickfix' })
+
+		-- Alternative: only errors
+		vim.keymap.set('n', '<leader>qe', function()
+			vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.ERROR, open = true })
+		end, { buffer = bufnr, desc = 'Open errors in quickfix' })
+
+		-- Alternative: current buffer only
+		vim.keymap.set('n', '<leader>qD', function()
+			vim.diagnostic.setloclist({ open = true })
+		end, { buffer = bufnr, desc = 'Open buffer diagnostics in location list' })
 
 		-- Create a command `:Format` local to the LSP buffer
 		vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
