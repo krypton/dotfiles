@@ -34,6 +34,9 @@ M.config = function()
 
 	-- File system navigation/manipulation
 	require('mini.files').setup()
+
+	-- Use icons for diagnostics, git, etc
+	require('mini.icons').setup()
 end
 
 return M
