@@ -8,15 +8,6 @@ return {
 		local mason = require("mason")
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
-		local ensure_installed = {
-			"lua_ls",
-			"cssls",
-			"html",
-			"ts_ls",
-			"gopls",
-			"taplo",
-			"marksman",
-		}
 
 		mason.setup({
 			ui = {
@@ -30,7 +21,17 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			ensure_installed = ensure_installed,
+			-- I want to enable servers myself in lsp.lua
+			automatic_enable = false,
+			ensure_installed = {
+				"lua_ls",
+				"cssls",
+				"html",
+				"ts_ls",
+				"gopls",
+				"taplo",
+				"marksman",
+			},
 		})
 
 		mason_tool_installer.setup({
