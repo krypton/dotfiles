@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local M = {
 	"echasnovski/mini.nvim",
 	version = false,

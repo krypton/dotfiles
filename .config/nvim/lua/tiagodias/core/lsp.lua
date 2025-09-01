@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = "rounded" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded" })
 
@@ -18,4 +16,18 @@ vim.diagnostic.config({
 })
 
 vim.lsp.log.set_level(vim.log.levels.DEBUG)
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim", },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+			telemetry = { enable = false },
+		},
+	},
+})
 vim.lsp.enable({ 'ruby_lsp', 'lua_ls', 'ts_ls', 'gopls', 'taplo', 'html', 'cssls', 'marksman' })

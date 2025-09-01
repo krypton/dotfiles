@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local M = {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
@@ -10,7 +9,6 @@ local M = {
 }
 
 M.config = function()
-	---@diagnostic disable-next-line: missing-fields
 	require("ts_context_commentstring").setup({
 		enable_autocmd = false,
 	})

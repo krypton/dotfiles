@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 local M = {
 	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit

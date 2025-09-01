@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- only highlight when searching
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function()
@@ -54,7 +53,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 -- Activates trailing whitespace on buffer save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*" },
 	callback = function(_)
 		local save_cursor = vim.fn.getpos(".")

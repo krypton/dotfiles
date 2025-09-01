@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local M = {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -9,7 +8,7 @@ local M = {
 		-- refer to the configuration section below
 		picker = {
 			enabled = true,
-			layout = "vertical",
+			layout = "ivy_split",
 		},
 		input = {
 			enabled = true,

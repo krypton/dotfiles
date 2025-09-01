@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 --- GitHub Copilot integration for Neovim
 --- Provides AI-powered code completion and chat functionality
 return {

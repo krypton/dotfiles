@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 local M = {
 	{
 		"lewis6991/gitsigns.nvim",
