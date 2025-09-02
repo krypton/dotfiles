@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- only highlight when searching
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function()
