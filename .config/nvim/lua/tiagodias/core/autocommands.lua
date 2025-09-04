@@ -63,18 +63,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
--- Set the border of mini.files window to rounded
-vim.api.nvim_create_autocmd("User", {
-	pattern = "MiniFilesWindowOpen",
-	callback = function(args)
-		local win_id = args.data.win_id
-		local config = vim.api.nvim_win_get_config(win_id)
-
-		config.border = "rounded"
-		vim.api.nvim_win_set_config(win_id, config)
-	end,
-})
-
 local map_split = function(buf_id, lhs, direction)
 	local rhs = function()
 		-- Make new window and set it as target
@@ -117,7 +105,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
 		vim.keymap.set("n", "K", function()
-			vim.lsp.buf.hover({ border = "rounded" })
+			vim.lsp.buf.hover()
 		end, { buffer = bufnr, desc = "Show documentation for what is under cursor" })
 		-- Add diagnostics to quickfix keybinding
 		vim.keymap.set('n', '<leader>qd', function()

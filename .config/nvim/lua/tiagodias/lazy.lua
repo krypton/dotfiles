@@ -33,6 +33,6 @@ require("lazy").setup({
 	ui = {
 		enabled = true,
 		theme = "tokyonight",
-		border = "rounded",
+		border = vim.opt.winborder:get(),
 	},
 })

@@ -10,9 +10,6 @@ M.config = function()
 
 	require("mini.notify").setup({
 		window = {
-			config = {
-				border = "rounded",
-			},
 			winblend = 0,
 		},
 	})

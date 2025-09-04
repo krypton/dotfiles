@@ -76,14 +76,11 @@ local M = {
 
 			opts.signature = {
 				enabled = true,
-				window = { border = "rounded" },
 			}
 
 			opts.completion = {
-				menu = { border = "rounded" },
 				documentation = {
 					auto_show = true,
-					window = { border = "rounded" },
 				},
 				ghost_text = {
 					enabled = true,

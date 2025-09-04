@@ -1,10 +1,6 @@
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = "rounded" })
-
 -- This enables LSP diagnostics to be shown inline
 vim.diagnostic.config({
 	virtual_text = true,
-	float = { border = "rounded" },
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
