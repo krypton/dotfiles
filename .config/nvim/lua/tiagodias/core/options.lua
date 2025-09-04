@@ -70,14 +70,14 @@ vim.opt.expandtab  = true                       -- Convert tabs to spaces
 vim.opt.ignorecase = true                       -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.incsearch  = true                       -- Highlight while typing a search pattern
 vim.opt.infercase  = true                       -- Infer letter cases for a richer built-in keyword completion
-vim.opt.iskeyword:append("@,48-57,_,192-255,-") -- Treat dash separated words as a word text object
+vim.opt.iskeyword:append("-")                   -- Treat dash separated words as a word text object
 vim.opt.shiftwidth  = 4                         -- The number of spaces inserted for each indentation
 vim.opt.smartcase   = true                      -- Don't ignore case when searching if pattern has upper case
 vim.opt.smartindent = true                      -- Do smart autoindenting when starting a new line
 vim.opt.softtabstop = 4                         -- Number of spaces that a <Tab> counts for while performing editing
 vim.opt.tabstop     = 4                         -- Number of spaces that a <Tab> in the file counts for.
 vim.opt.virtualedit = "block"                   -- Enable virtual edit for visual block mode
-vim.opt.whichwrap:append("<,>,[,],h,l")         -- Keys allowed to move to the previous/next line when the beginning/end of line is reached
+vim.opt.whichwrap:append("<,>,[,]")             -- Keys allowed to move to the previous/next line when the beginning/end of line is reached
 
 vim.opt.completeopt = { "menuone", "noselect" } -- Show popup even with one item and don't autoselect first
 
