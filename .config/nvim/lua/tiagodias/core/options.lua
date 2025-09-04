@@ -58,7 +58,7 @@ if vim.fn.has("nvim-0.10") == 0 then
 	vim.opt.termguicolors = true -- Enable gui colors (Neovim>=0.10 does this automatically)
 end
 
-if vim.fn.has("nvim-0.11") == 1 then
+if vim.fn.exists("+winborder") == 1 then
 	vim.opt.winborder = "rounded" -- Use rounded as default border
 end
 

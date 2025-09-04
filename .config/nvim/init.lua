@@ -18,9 +18,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local winborder = vim.opt.winborder:get()
-if vim.fn.has("nvim-0.12") == 1 then
-    winborder = winborder[1]
+local winborder = "rounded"
+if vim.fn.exists("+winborder") == 1 and vim.o.winborder ~= "" then
+    winborder = vim.opt.winborder:get()
+    if vim.isarray(winborder) and #winborder == 1 then
+        winborder = winborder[1]
+    end
 end
 
 -- Setup lazy.nvim
