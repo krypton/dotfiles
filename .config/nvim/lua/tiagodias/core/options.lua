@@ -94,3 +94,16 @@ vim.g.markdown_folding = 1        -- Use folding by heading in markdown files
 if vim.fn.has("nvim-0.10") == 1 then
 	vim.opt.foldtext = "" -- Use underlying text with its highlighting
 end
+
+-- Diagnostics configuration
+vim.diagnostic.config({
+	virtual_text = true, -- This enables LSP diagnostics to be shown inline
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
+})

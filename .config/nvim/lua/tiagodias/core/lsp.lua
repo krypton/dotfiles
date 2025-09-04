@@ -1,16 +1,3 @@
--- This enables LSP diagnostics to be shown inline
-vim.diagnostic.config({
-	virtual_text = true,
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.HINT] = "󰠠 ",
-			[vim.diagnostic.severity.INFO] = " ",
-		},
-	},
-})
-
 vim.lsp.log.set_level(vim.log.levels.DEBUG)
 vim.lsp.config("lua_ls", {
 	settings = {
