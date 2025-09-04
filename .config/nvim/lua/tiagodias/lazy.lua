@@ -13,7 +13,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
+
 vim.opt.rtp:prepend(lazypath)
+
+local winborder = vim.opt.winborder:get()
+if vim.fn.has("nvim-0.12") == 1 then
+	winborder = winborder[1]
+end
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -33,6 +39,6 @@ require("lazy").setup({
 	ui = {
 		enabled = true,
 		theme = "tokyonight",
-		border = vim.opt.winborder:get(),
+		border = winborder,
 	},
 })
