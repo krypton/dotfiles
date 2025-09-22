@@ -23,12 +23,6 @@ local M = {
 		{ "<leader>sg", function() Snacks.picker.git_files() end,                  desc = "[S]earch [g]it files" },
 		{ "<leader>sh", function() Snacks.picker.help() end,                       desc = "[S]earch [h]elp" },
 		{ "<leader>sr", function() Snacks.picker.resume() end,                     desc = "[S]earch [r]esume" },
-		-- LSP
-		{ "gd",         function() Snacks.picker.lsp_definitions() end,            desc = "Goto Definition" },
-		{ "gr",         function() Snacks.picker.lsp_references() end,             nowait = true,                                 desc = "References" },
-		{ "gi",         function() Snacks.picker.lsp_implementations() end,        desc = "Goto Implementation" },
-		{ "gt",         function() Snacks.picker.lsp_type_definitions() end,       desc = "Goto T[y]pe Definition" },
-		{ "gs",         function() Snacks.picker.lsp_symbols() end,                desc = "LSP Symbols" },
 	}
 }
 
