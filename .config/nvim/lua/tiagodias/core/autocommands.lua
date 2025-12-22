@@ -103,6 +103,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		local bufnr = args.buf
 
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
