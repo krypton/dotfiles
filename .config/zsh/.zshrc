@@ -50,13 +50,19 @@ autoload -Uz cursor_mode && cursor_mode
 # Edit command line in $EDITOR
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 
 # Enable overmind completions
 if [ $(command -v "overmind") ]; then
   source "$ZDOTDIR/external/zsh-overmind-autocomplete/zsh-overmind-autocomplete.plugin.zsh"
   autoload -Uz _overmind_generic && _overmind_generic
 fi
+
+# -------------------------------------------
+# zmv - Advanced Batch Rename/Move
+# -------------------------------------------
+# Enable zmv
+autoload -Uz zmv
 
 # zsh-syntax-highlighting
 source "$ZSH_PLUGINS_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -82,6 +88,22 @@ bindkey "^[[1;3D" backward-word
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;5D" beginning-of-line
 bindkey "^[[1;5C" end-of-line
+
+# -------------------------------------------
+# Magic Space - Expand History
+# -------------------------------------------
+# Expands history expressions like !! or !$ when you press space
+bindkey ' ' magic-space
+
+# -------------------------------------------
+# Hotkey Insertions - Text Snippets
+# -------------------------------------------
+# Insert git commit template (Ctrl+X, G, C)
+# ^[OD moves cursor back one char
+bindkey -s '^Xgc' 'git commit -m ""^[OD'
+bindkey -s '^Xgp' 'git push origin '
+bindkey -s '^Xgs' 'git status\n'
+bindkey -s '^Xgl' 'git log --oneline -n 10\n'
 
 # start i3wm
 if [ "$(tty)" = "/dev/tty1" ] && [ $OS = "linux" ]; then
@@ -128,3 +150,29 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# -------------------------------------------
+# Custom Widgets
+# -------------------------------------------
+# Clear screen but keep current command buffer
+function clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
+}
+zle -N clear-screen-and-scrollback
+bindkey '^X^T' clear-screen-and-scrollback
+
+# Copy current command buffer to clipboard
+function copy-buffer-to-clipboard() {
+  if [[ $OS = 'linux' ]]; then
+    echo -n "$BUFFER" | xclip -selection clipboard
+  elif [[ $OS = 'macos' ]]; then
+    echo -n "$BUFFER" | pbcopy
+  fi
+
+  zle -M "Copied to clipboard"
+}
+zle -N copy-buffer-to-clipboard
+bindkey '^X^Y' copy-buffer-to-clipboard

@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying text)",
 	group = vim.api.nvim_create_augroup("binhuman-highlight-yank", { clear = true }),
 	callback = function()
-		(vim.hl or vim.highlight).on_yank({ timeout = 200 })
+		(vim.hl or vim.highlight).on_yank({ timeout = 200, visual = true })
 	end,
 })
 
@@ -127,5 +127,60 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
 			vim.lsp.buf.format({ bufnr = bufnr })
 		end, { desc = "Format current buffer with LSP" })
+	end,
+})
+
+-- open help in vertical split
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	command = "wincmd L",
+})
+
+-- ide like highlight when stopping cursor
+vim.api.nvim_create_autocmd("CursorMoved", {
+	group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
+	desc = "Highlight references under cursor",
+	callback = function()
+		-- Only run if the cursor is not in insert mode
+		if vim.fn.mode() ~= "i" then
+			local clients = vim.lsp.get_clients({ bufnr = 0 })
+			local supports_highlight = false
+			for _, client in ipairs(clients) do
+				if client.server_capabilities.documentHighlightProvider then
+					supports_highlight = true
+					break -- Found a supporting client, no need to check others
+				end
+			end
+
+			-- 3. Proceed only if an LSP is active AND supports the feature
+			if supports_highlight then
+				vim.lsp.buf.clear_references()
+				vim.lsp.buf.document_highlight()
+			end
+		end
+	end,
+})
+
+-- ide like highlight when stopping cursor
+vim.api.nvim_create_autocmd("CursorMovedI", {
+	group = "LspReferenceHighlight",
+	desc = "Clear highlights when entering insert mode",
+	callback = function()
+		vim.lsp.buf.clear_references()
+	end,
+})
+
+-- restore cursor to file position in previous editing session
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function(args)
+		local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+		local line_count = vim.api.nvim_buf_line_count(args.buf)
+		if mark[1] > 0 and mark[1] <= line_count then
+			vim.api.nvim_win_set_cursor(0, mark)
+			-- defer centering slightly so it's applied after render
+			vim.schedule(function()
+				vim.cmd("normal! zz")
+			end)
+		end
 	end,
 })

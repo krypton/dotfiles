@@ -21,3 +21,43 @@ for index in $(seq 1 10); do
   alias "$index"="cd +$index"
 done
 unset index
+
+# -------------------------------------------
+# Suffix Aliases - Open Files by Extension
+# -------------------------------------------
+# Just type the filename to open it with the associated program
+
+alias -s json="jq '.' "
+alias -s md=bat
+alias -s txt=bat
+alias -s log=bat
+alias -s go='$EDITOR'
+alias -s rb='$EDITOR'
+alias -s js='$EDITOR'
+alias -s ts='$EDITOR'
+alias -s lua='$EDITOR'
+
+# -------------------------------------------
+# Global Aliases - Use Anywhere in Commands
+# -------------------------------------------
+# Redirect stderr to /dev/null
+alias -g NE='2>/dev/null'
+
+# Redirect stdout to /dev/null
+alias -g NO='>/dev/null'
+
+# Redirect both stdout and stderr to /dev/null
+alias -g NUL='>/dev/null 2>&1'
+
+# Pipe to jq
+alias -g J='| jq'
+
+# Copy output to clipboard (macOS)
+if [ $OS = 'macos' ]; then
+  alias -g C='| pbcopy'
+fi
+
+# Copy output to clipboard (Linux with xclip)
+if [ $OS = 'linux' ]; then
+  alias -g C='| xclip -selection clipboard'
+fi

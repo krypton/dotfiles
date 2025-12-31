@@ -10,6 +10,7 @@ config.text_background_opacity = 0.97
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
+config.enable_wayland = false
 
 -- Maximize window on startup
 wezterm.on("gui-startup", function(cmd)
