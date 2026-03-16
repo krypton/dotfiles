@@ -8,8 +8,8 @@
 SAVE_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SAVE_DIR"
 
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-FILE="$SAVE_DIR/screenshot_$TIMESTAMP.png"
+TIMESTAMP=$(date +"%Y-%m-%d %H-%M-%S")
+FILE="$SAVE_DIR/Screenshot from $TIMESTAMP.png"
 
 case $1 in
     full)
