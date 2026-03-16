@@ -1,0 +1,77 @@
+/* Tokyo Night Moon */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    border: 2px solid #86e1fc;
+    border-radius: 12px;
+    background-color: #222436;
+    color: #c8d3f5;
+}
+
+#input {
+    margin: 8px;
+    padding: 8px 12px;
+    border: 1px solid #444a73;
+    border-radius: 8px;
+    background-color: #2f334d;
+    color: #c8d3f5;
+    outline: none;
+}
+
+#input:focus {
+    border-color: #86e1fc;
+}
+
+#input::placeholder {
+    color: #636da6;
+}
+
+#inner-box {
+    margin: 4px;
+    padding: 4px;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 4px;
+    padding: 4px;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 4px;
+    padding: 0px;
+}
+
+#text {
+    margin: 4px 8px;
+    color: #c8d3f5;
+}
+
+#text:selected {
+    color: #222436;
+}
+
+#entry {
+    padding: 6px 8px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    background-color: #86e1fc;
+    color: #222436;
+}
+
+#entry:selected #text {
+    color: #222436;
+}
+
+#img {
+    margin-right: 8px;
+}

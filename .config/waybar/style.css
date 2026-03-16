@@ -1,0 +1,138 @@
+/* Tokyo Night Moon */
+/* Background:  #222436 */
+/* Surface:     #2f334d */
+/* Overlay:     #444a73 */
+/* Muted:       #636da6 */
+/* Text:        #c8d3f5 */
+/* Love:        #ff757f */
+/* Gold:        #ffc777 */
+/* Pine:        #4fd6be */
+/* Foam:        #86e1fc */
+/* Iris:        #c099ff */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(34, 36, 54, 0.92);
+    color: #c8d3f5;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 8px;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    color: #636da6;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background-color: rgba(68, 74, 115, 0.4);
+    color: #c8d3f5;
+}
+
+#workspaces button.active {
+    color: #86e1fc;
+    border-bottom: 2px solid #86e1fc;
+}
+
+#workspaces button.urgent {
+    color: #ff757f;
+    border-bottom: 2px solid #ff757f;
+}
+
+/* Clock */
+#clock {
+    color: #c8d3f5;
+    font-weight: bold;
+}
+
+/* Network */
+#network {
+    color: #4fd6be;
+    padding: 0 10px;
+}
+
+#network.disconnected {
+    color: #ff757f;
+}
+
+/* Battery */
+#battery {
+    color: #4fd6be;
+    padding: 0 10px;
+}
+
+#battery.warning {
+    color: #ffc777;
+}
+
+#battery.critical {
+    color: #ff757f;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.charging {
+    color: #4fd6be;
+}
+
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
+
+/* Audio */
+#pulseaudio {
+    color: #c099ff;
+    padding: 0 10px;
+}
+
+#pulseaudio.muted {
+    color: #636da6;
+}
+
+/* Bluetooth */
+#bluetooth {
+    color: #86e1fc;
+    padding: 0 10px;
+}
+
+#bluetooth.off {
+    color: #636da6;
+}
+
+/* Tray */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ff757f;
+}
