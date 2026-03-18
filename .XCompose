@@ -2,3 +2,7 @@ include "%L"
 
 <dead_acute> <C> : "Ç" Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
 <dead_acute> <c> : "ç" ccedilla # LATIN SMALL LETTER C WITH CEDILLA
+
+# Euro sign - simple 2-key compose sequences
+<Multi_key> <e> : "€" EuroSign # Compose + e → €
+<Multi_key> <E> : "€" EuroSign # Compose + E → €
