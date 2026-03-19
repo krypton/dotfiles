@@ -3,3 +3,8 @@
 README.md
 INSTALL.md
 .gitmodules
+stow-install.sh
+
+# Ignore OS-specific directories
+^/\.config/linux
+^/\.local/bin/linux
