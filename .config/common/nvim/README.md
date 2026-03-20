@@ -1,136 +1,132 @@
-# dotfiles/.config/nvim
+# Neovim Configuration
 
-<a href="https://dotfyle.com/krypton/dotfiles-config-nvim"><img src="https://dotfyle.com/krypton/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/krypton/dotfiles-config-nvim"><img src="https://dotfyle.com/krypton/dotfiles-config-nvim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/krypton/dotfiles-config-nvim"><img src="https://dotfyle.com/krypton/dotfiles-config-nvim/badges/plugin-manager?style=flat" /></a>
+Modern Neovim config using lazy.nvim plugin manager.
 
-## Install Instructions
+## Requirements
 
-> Install requires Neovim 0.9+. Always review the code before installing a configuration.
+- Neovim 0.10+ (optimized for 0.12)
+- ripgrep (for grep searches)
+- git
+- Node.js (for Copilot)
+- Language-specific tools (see below)
 
-Clone the repository and install the plugins:
+## Installation
 
-```sh
-git clone git@github.com:krypton/dotfiles ~/.config/krypton/dotfiles
-NVIM_APPNAME=krypton/dotfiles/.config/nvim nvim --headless +"Lazy! sync" +qa
-```
-
-Open Neovim with this config:
+Symlink to this config and open Neovim:
 
 ```sh
-NVIM_APPNAME=krypton/dotfiles/.config/nvim nvim
+ln -s ~/.dotfiles/.config/common/nvim ~/.config/nvim
+nvim
 ```
+
+Plugins auto-install on first launch.
 
 ## Plugins
 
-### bars-and-lines
+### Completion
 
-- [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
-- [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
+- [blink.cmp](https://github.com/saghen/blink.cmp) - Modern async completion
+- [blink-cmp-copilot](https://github.com/saghen/blink.cmp) - GitHub Copilot integration
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippet collection
 
-### colorscheme
+### AI
 
-- [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
-- [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
+- [copilot.lua](https://github.com/zbirenbaum/copilot.lua) - GitHub Copilot
+- [opencode.nvim](https://github.com/opencodeai/opencode.nvim) - OpenCode AI assistant
 
-### comment
+### LSP & Diagnostics
 
-- [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
-- [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - LSP configurations
+- [mason.nvim](https://github.com/williamboman/mason.nvim) - Language server installer
+- [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) - Mason + LSP bridge
+- [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) - Auto-install tools
 
-### completion
+### Formatting & Linting
 
-- [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+- [conform.nvim](https://github.com/stevearc/conform.nvim) - Async formatting
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint) - Async linting
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Syntax highlighting & parsing
 
-### diagnostics
+### File Navigation
 
-- [folke/trouble.nvim](https://dotfyle.com/plugins/folke/trouble.nvim)
+- [snacks.nvim](https://github.com/folke/snacks.nvim) - File picker, grep, buffers
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.files) - File explorer
+- [grapple.nvim](https://github.com/cbochs/grapple.nvim) - Tag files for quick access
 
-### editing-support
+### Git
 
-- [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
-- [folke/zen-mode.nvim](https://dotfyle.com/plugins/folke/zen-mode.nvim)
-- [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-- [nacro90/numb.nvim](https://dotfyle.com/plugins/nacro90/numb.nvim)
-- [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git signs in gutter
+- [neogit](https://github.com/NeogitOrg/neogit) - Magit-like Git interface
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim) - Diff viewer
 
-### formatting
+### UI
 
-- [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Tokyo Night colorscheme
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.statusline, mini.notify, mini.indentscope)
+- [which-key.nvim](https://github.com/folke/which-key.nvim) - Keybinding helper
+- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Code context display
 
-### fuzzy-finder
+### Productivity
 
-- [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - Obsidian vault integration
+- [vim-sleuth](https://github.com/tpope/vim-sleuth) - Auto-detect indentation
+- [tmux.nvim](https://github.com/aserowy/tmux.nvim) - Tmux/Neovim integration
 
-### git
+### Utility
 
-- [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
-
-### indent
-
-- [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
-
-### keybinding
-
-- [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
-
-### lsp
-
-- [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
-- [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
-- [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-- [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
-- [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
-
-### lsp-installer
-
-- [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
-
-### nvim-dev
-
-- [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
-- [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-
-### plugin-manager
-
-- [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
-### snippet
-
-- [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
-- [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
-
-### split-and-window
-
-- [anuvyklack/windows.nvim](https://dotfyle.com/plugins/anuvyklack/windows.nvim)
-
-### statusline
-
-- [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
-
-### syntax
-
-- [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
-- [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
-- [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-
-### tmux
-
-- [aserowy/tmux.nvim](https://dotfyle.com/plugins/aserowy/tmux.nvim)
-
-### utility
-
-- [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
-- [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.ai, mini.icons, mini.files)
+- [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - Context-aware comments
 
 ## Language Servers
 
-- cssls
-- gopls
-- graphql
-- html
-- lua_ls
-- ruby_lsp
-- tsserver
+- lua_ls (Neovim config)
+- ruby_lsp (Ruby)
+- ts_ls (TypeScript)
+- gopls (Go)
+- html, cssls, marksman, taplo
 
-This readme was generated by [Dotfyle](https://dotfyle.com)
+## Formatters
+
+- prettier (JS/TS, JSON, YAML, HTML, CSS, Markdown)
+- stylua (Lua)
+- goimports, gofumpt (Go)
+
+## Linters
+
+- eslint_d (JS/TS)
+- luacheck (Lua)
+- staticcheck (Go)
+- rubocop (Ruby via ruby_lsp)
+
+## Keybindings
+
+Leader key: `<Space>`
+
+### General
+
+- `<Space>pv` - File explorer (MiniFiles)
+- `<Space>pf` - Find files (Snacks)
+- `<Space>pg` - Find git files (Snacks)
+- `<Space>ps` - Grep search (Snacks)
+- `<Space>pb` - Find buffers (Snacks)
+
+### LSP
+
+- `gd` - Go to definition
+- `gD` - Go to declaration
+- `<Space>rn` - Rename
+- `K` - Hover documentation
+- `<Space>qd` - Diagnostics in quickfix
+- `<Space>qD` - Buffer diagnostics
+
+### Git
+
+- `<Space>gs` - Open Neogit
+
+### Folds
+
+- `<CR>` - Toggle fold
+
+### Tmux
+
+- `Ctrl-h/j/k/l` - Navigate windows (including tmux panes)

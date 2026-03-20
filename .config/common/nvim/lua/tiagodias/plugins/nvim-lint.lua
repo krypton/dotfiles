@@ -12,6 +12,8 @@ M.config = function()
 		javascriptreact = { "eslint_d" },
 		typescript = { "eslint_d" },
 		typescriptreact = { "eslint_d" },
+		lua = { "luacheck" },
+		go = { "staticcheck" },
 	}
 
 	local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
