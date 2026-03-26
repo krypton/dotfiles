@@ -6,7 +6,10 @@ vim.lsp.config("lua_ls", {
 				globals = { "vim", },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = {
+					vim.env.VIMRUNTIME,
+					"${3rd}/luv/library",
+				},
 				checkThirdParty = false,
 			},
 			telemetry = { enable = false },
