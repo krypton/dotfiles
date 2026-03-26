@@ -1,4 +1,4 @@
-vim.lsp.log.set_level(vim.log.levels.DEBUG)
+vim.lsp.log.set_level(vim.log.levels.WARN)
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

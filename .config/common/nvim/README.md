@@ -1,10 +1,10 @@
 # Neovim Configuration
 
-Modern Neovim config using lazy.nvim plugin manager.
+Modern Neovim config using vim.pack (Neovim built-in plugin manager).
 
 ## Requirements
 
-- Neovim 0.10+ (optimized for 0.12)
+- Neovim 0.12+
 - ripgrep (for grep searches)
 - git
 - Node.js (for Copilot)
@@ -19,20 +19,20 @@ ln -s ~/.dotfiles/.config/common/nvim ~/.config/nvim
 nvim
 ```
 
-Plugins auto-install on first launch.
+Plugins auto-install on first launch. Press `a` to confirm all installations.
 
 ## Plugins
 
 ### Completion
 
 - [blink.cmp](https://github.com/saghen/blink.cmp) - Modern async completion
-- [blink-cmp-copilot](https://github.com/saghen/blink.cmp) - GitHub Copilot integration
+- [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot) - GitHub Copilot integration for blink
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippet collection
 
 ### AI
 
 - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) - GitHub Copilot
-- [opencode.nvim](https://github.com/opencodeai/opencode.nvim) - OpenCode AI assistant
+- [opencode.nvim](https://github.com/NickvanDyke/opencode.nvim) - OpenCode AI assistant
 
 ### LSP & Diagnostics
 
@@ -51,7 +51,7 @@ Plugins auto-install on first launch.
 
 - [snacks.nvim](https://github.com/folke/snacks.nvim) - File picker, grep, buffers
 - [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.files) - File explorer
-- [grapple.nvim](https://github.com/cbochs/grapple.nvim) - Tag files for quick access
+- [grapple.nvim](https://github.com/cbochs/grapple.nvim) - File tagging (opencode dependency)
 
 ### Git
 
@@ -68,7 +68,7 @@ Plugins auto-install on first launch.
 
 ### Productivity
 
-- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - Obsidian vault integration
+- [obsidian.nvim](https://github.com/obsidian-nvim/obsidian.nvim) - Obsidian vault integration
 - [vim-sleuth](https://github.com/tpope/vim-sleuth) - Auto-detect indentation
 - [tmux.nvim](https://github.com/aserowy/tmux.nvim) - Tmux/Neovim integration
 
@@ -94,7 +94,6 @@ Plugins auto-install on first launch.
 ## Linters
 
 - eslint_d (JS/TS)
-- luacheck (Lua)
 - staticcheck (Go)
 - rubocop (Ruby via ruby_lsp)
 
@@ -105,10 +104,13 @@ Leader key: `<Space>`
 ### General
 
 - `<Space>pv` - File explorer (MiniFiles)
-- `<Space>pf` - Find files (Snacks)
-- `<Space>pg` - Find git files (Snacks)
-- `<Space>ps` - Grep search (Snacks)
-- `<Space>pb` - Find buffers (Snacks)
+- `<Space>sf` - Find files
+- `<Space>sg` - Find git files
+- `<Space>ss` - Grep search
+- `<Space>sb` - Find buffers
+- `<Space>sh` - Search help
+- `<Space>sc` - Grep word under cursor
+- `<Space>sr` - Resume last search
 
 ### LSP
 
@@ -117,11 +119,20 @@ Leader key: `<Space>`
 - `<Space>rn` - Rename
 - `K` - Hover documentation
 - `<Space>qd` - Diagnostics in quickfix
-- `<Space>qD` - Buffer diagnostics
+- `<Space>qe` - Errors in quickfix
+- `<Space>qD` - Buffer diagnostics in location list
 
 ### Git
 
 - `<Space>gs` - Open Neogit
+
+### AI
+
+- `<Space>oa` - Ask OpenCode (normal/visual)
+- `<Space>ot` - Toggle OpenCode
+- `<Space>on` - New session
+- `<Space>op` - Select prompt
+- `<Space>oe` - Explain code near cursor
 
 ### Folds
 

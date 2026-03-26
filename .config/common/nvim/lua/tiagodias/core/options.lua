@@ -1,5 +1,3 @@
-vim.loader.enable() -- Enables the experimental Lua module loader
-
 -- Leader key mapped to <space>
 vim.g.mapleader          = " "
 vim.g.maplocalleader     = " "
