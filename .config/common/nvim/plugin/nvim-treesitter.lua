@@ -7,25 +7,32 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 			"https://github.com/nvim-treesitter/nvim-treesitter",
 		})
 
-		-- vim.schedule defers require() calls to after vim.pack.add() has fully
-		-- sourced the plugins into the runtime path
-		vim.schedule(function()
-			require("ts_context_commentstring").setup({
-				enable_autocmd = false,
-			})
+		-- ts_context_commentstring must be configured synchronously here, before
+		-- the FileType event fires for this buffer. Its plugin/ file registers a
+		-- FileType autocmd that reads enable_autocmd from config (default: true)
+		-- and would register a CursorHold autocmd. If we deferred this into
+		-- vim.schedule the FileType event would fire first with the default
+		-- enable_autocmd = true, causing the CursorHold error on buffers without
+		-- a treesitter parser.
+		require("ts_context_commentstring").setup({
+			enable_autocmd = false,
+		})
 
-			-- Override get_option to use ts_context_commentstring for commentstring
-			local get_option = vim.filetype.get_option
-			vim.filetype.get_option = function(filetype, option)
-				if option == "commentstring" then
-					local ok, cs = pcall(require("ts_context_commentstring.internal").calculate_commentstring)
-					if ok and cs then
-						return cs
-					end
+		-- Override get_option to use ts_context_commentstring for commentstring
+		local get_option = vim.filetype.get_option
+		vim.filetype.get_option = function(filetype, option)
+			if option == "commentstring" then
+				local ok, cs = pcall(require("ts_context_commentstring.internal").calculate_commentstring)
+				if ok and cs then
+					return cs
 				end
-				return get_option(filetype, option)
 			end
+			return get_option(filetype, option)
+		end
 
+		-- vim.schedule defers nvim-treesitter require() calls to after
+		-- vim.pack.add() has fully sourced its plugins into the runtime path
+		vim.schedule(function()
 			-- nvim-treesitter rewrite: setup() only accepts install_dir
 			require("nvim-treesitter").setup()
 
