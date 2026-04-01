@@ -14,6 +14,8 @@ vim.keymap.set("n", "<C-c>", "<C-w>c") -- closes tab
 vim.keymap.set("n", "<C-b>", "<C-w>s") -- splits horizontally
 vim.keymap.set("n", "<C-s>", "<C-w>v") -- splits vertically
 
+vim.keymap.set("n", "<leader>u", vim.cmd.Undotree, { desc = "Toggle undotree" })
+
 -- leader movements
 vim.keymap.set("n", "<leader><leader>x", ":source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")

@@ -1,5 +1,7 @@
 vim.loader.enable() -- Must be first line for maximum performance
 
+vim.cmd("packadd! nvim.undotree")
+
 require("tiagodias.core")
 
 -- PackChanged hook: run TSUpdate after nvim-treesitter install/update
