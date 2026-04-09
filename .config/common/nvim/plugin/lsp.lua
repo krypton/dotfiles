@@ -84,6 +84,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 		end
 
+		-- Inline completions (e.g. Copilot LSP)
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+			vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+			vim.keymap.set("i", "<C-F>", vim.lsp.inline_completion.get,
+				{ buffer = bufnr, desc = "LSP: accept inline completion" })
+			vim.keymap.set("i", "<C-G>", vim.lsp.inline_completion.select,
+				{ buffer = bufnr, desc = "LSP: switch inline completion" })
+		end
+
 		-- Highlight references under cursor (scoped to this buffer/client)
 		if client and client:supports_method("textDocument/documentHighlight") then
 			local group = vim.api.nvim_create_augroup("binhuman-lsp-highlight-" .. bufnr, {})
