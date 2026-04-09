@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.pack.add({
 			"https://github.com/rafamadriz/friendly-snippets",
 			"https://github.com/giuxtaposition/blink-cmp-copilot",
-			{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("0.x") },
+			{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.x") },
 		})
 
 		vim.schedule(function()
@@ -31,10 +31,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 							end,
 						},
 					},
-				},
-
-				snippets = {
-					preset = "default",
 				},
 
 				appearance = {
