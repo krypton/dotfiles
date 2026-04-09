@@ -16,4 +16,4 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-vim.lsp.enable({ 'ruby_lsp', 'lua_ls', 'ts_ls', 'gopls', 'taplo', 'html', 'cssls', 'marksman' })
+vim.lsp.enable({ 'ruby_lsp', 'lua_ls', 'ts_ls', 'gopls', 'taplo', 'html', 'cssls', 'marksman', 'copilot' })

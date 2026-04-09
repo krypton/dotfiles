@@ -1,6 +1,9 @@
 vim.loader.enable() -- Must be first line for maximum performance
 
 vim.cmd("packadd! nvim.undotree")
+vim.cmd("packadd! nvim.difftool")
+
+require('vim._core.ui2').enable()
 
 require("tiagodias.core")
 
@@ -9,7 +12,9 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		local name, kind = ev.data.spec.name, ev.data.kind
 		if name == "nvim-treesitter" and (kind == "install" or kind == "update") then
-			if not ev.data.active then vim.cmd.packadd("nvim-treesitter") end
+			if not ev.data.active then
+				vim.cmd.packadd("nvim-treesitter")
+			end
 			vim.cmd("TSUpdate")
 		end
 	end,
@@ -19,7 +24,9 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		if ev.data.spec.name == "markdown-preview.nvim" and ev.data.kind == "install" then
-			if not ev.data.active then vim.cmd.packadd("markdown-preview.nvim") end
+			if not ev.data.active then
+				vim.cmd.packadd("markdown-preview.nvim")
+			end
 			vim.fn["mkdp#util#install"]()
 		end
 	end,

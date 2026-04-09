@@ -1,25 +1,6 @@
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function()
-		-- Copilot: suggestions and panel disabled, used via blink-cmp-copilot
-		vim.pack.add({ "https://github.com/zbirenbaum/copilot.lua" })
-
-		vim.schedule(function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-				-- Use specific Node.js version from asdf if available, else fallback to system node
-				copilot_node_command = (function()
-					local asdf_node = vim.fn.expand("$HOME") .. "/.asdf/installs/nodejs/23.11.0/bin/node"
-					if vim.loop.fs_stat(asdf_node) then
-						return asdf_node
-					else
-						return "node"
-					end
-				end)(),
-			})
-		end)
-
 		-- OpenCode AI assistant
 		-- opencode uses vim.g.opencode_opts instead of a setup() function
 		vim.pack.add({

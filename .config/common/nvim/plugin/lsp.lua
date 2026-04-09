@@ -36,23 +36,25 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					"prettier", -- formatter
-					"stylua", -- lua formatter
+					"stylua",   -- lua formatter
 					"eslint_d", -- js/ts linter
 					"staticcheck", -- go linter
-					"delve", -- go debugger
+					"delve",    -- go debugger
 					"goimports", -- go auto imports
-					"gofumpt", -- go strict formatter
+					"gofumpt",  -- go strict formatter
+					"copilot-language-server", -- GitHub Copilot LSP
 				},
 			})
 		end)
 	end,
 })
 
--- LspAttach: keymaps and commands for LSP buffers
+-- LspAttach: keymaps, commands and per-buffer autocmds for LSP buffers
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("binhuman-lsp-attach", {}),
 	callback = function(args)
 		local bufnr = args.buf
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go to declaration" })
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Go to definition" })
@@ -76,35 +78,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
 			vim.lsp.buf.format({ bufnr = bufnr })
 		end, { desc = "Format current buffer with LSP" })
-	end,
-})
 
--- Highlight references under cursor
-vim.api.nvim_create_autocmd("CursorMoved", {
-	group = vim.api.nvim_create_augroup("binhuman-lsp-highlight", { clear = true }),
-	desc = "Highlight references under cursor",
-	callback = function()
-		if vim.fn.mode() ~= "i" then
-			local buftype = vim.bo.buftype
-			if buftype ~= "" and buftype ~= "acwrite" then return end
-
-			local clients = vim.lsp.get_clients({ bufnr = 0 })
-			for _, client in ipairs(clients) do
-				if client.server_capabilities.documentHighlightProvider then
-					vim.lsp.buf.clear_references()
-					vim.lsp.buf.document_highlight()
-					return
-				end
-			end
+		-- Inlay hints (types, parameter names)
+		if client and client:supports_method("textDocument/inlayHint") then
+			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 		end
-	end,
-})
 
--- Clear highlights when entering insert mode
-vim.api.nvim_create_autocmd("InsertEnter", {
-	group = "binhuman-lsp-highlight",
-	desc = "Clear highlights when entering insert mode",
-	callback = function()
-		vim.lsp.buf.clear_references()
+		-- Highlight references under cursor (scoped to this buffer/client)
+		if client and client:supports_method("textDocument/documentHighlight") then
+			local group = vim.api.nvim_create_augroup("binhuman-lsp-highlight-" .. bufnr, {})
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				group = group,
+				buffer = bufnr,
+				callback = vim.lsp.buf.document_highlight,
+			})
+			vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter" }, {
+				group = group,
+				buffer = bufnr,
+				callback = vim.lsp.buf.clear_references,
+			})
+		end
 	end,
 })

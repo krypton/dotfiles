@@ -40,6 +40,7 @@ vim.opt.listchars      = table.concat({ "extends:…", "nbsp:␣", "precedes:…
 vim.opt.number         = true -- Make line numbers default
 vim.opt.numberwidth    = 4 -- Minimal number of columns to use for the line number {default 4}
 vim.opt.pumheight      = 10 -- Pop up menu height
+vim.opt.pumborder      = 'rounded' -- Pop up menu border
 vim.opt.relativenumber = true -- Relative line numbers, to help with jumping
 vim.opt.ruler          = false -- Don't show the cursor position
 vim.opt.scrolloff      = 999 -- Minimal number of screen lines to keep above and below the cursor
@@ -63,25 +64,20 @@ end
 vim.opt.wrap       = false -- Display lines as one long line
 
 -- Editing options
-vim.opt.autoindent = true                       -- Use auto indent
-vim.opt.expandtab  = true                       -- Convert tabs to spaces
-vim.opt.ignorecase = true                       -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.incsearch  = true                       -- Highlight while typing a search pattern
-vim.opt.infercase  = true                       -- Infer letter cases for a richer built-in keyword completion
-vim.opt.iskeyword:append("-")                   -- Treat dash separated words as a word text object
-vim.opt.shiftwidth  = 4                         -- The number of spaces inserted for each indentation
-vim.opt.smartcase   = true                      -- Don't ignore case when searching if pattern has upper case
-vim.opt.smartindent = true                      -- Do smart autoindenting when starting a new line
-vim.opt.softtabstop = 4                         -- Number of spaces that a <Tab> counts for while performing editing
-vim.opt.tabstop     = 4                         -- Number of spaces that a <Tab> in the file counts for.
-vim.opt.virtualedit = "block"                   -- Enable virtual edit for visual block mode
-vim.opt.whichwrap:append("<,>,[,]")             -- Keys allowed to move to the previous/next line when the beginning/end of line is reached
-
-vim.opt.completeopt = { "menuone", "noselect" } -- Show popup even with one item and don't autoselect first
-
-if vim.fn.has("nvim-0.11") == 1 then
-	vim.opt.completeopt = { "menuone", "noselect", "fuzzy", "nosort" } -- Use fuzzy matching for built-in completion
-end
+vim.opt.autoindent = true                                             -- Use auto indent
+vim.opt.expandtab  = true                                             -- Convert tabs to spaces
+vim.opt.ignorecase = true                                             -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.incsearch  = true                                             -- Highlight while typing a search pattern
+vim.opt.infercase  = true                                             -- Infer letter cases for a richer built-in keyword completion
+vim.opt.iskeyword:append("-")                                         -- Treat dash separated words as a word text object
+vim.opt.shiftwidth  = 4                                               -- The number of spaces inserted for each indentation
+vim.opt.smartcase   = true                                            -- Don't ignore case when searching if pattern has upper case
+vim.opt.smartindent = true                                            -- Do smart autoindenting when starting a new line
+vim.opt.softtabstop = 4                                               -- Number of spaces that a <Tab> counts for while performing editing
+vim.opt.tabstop     = 4                                               -- Number of spaces that a <Tab> in the file counts for.
+vim.opt.virtualedit = "block"                                         -- Enable virtual edit for visual block mode
+vim.opt.whichwrap:append("<,>,[,]")                                   -- Keys allowed to move to the previous/next line when the beginning/end of line is reached
+vim.opt.completeopt    = { "menuone", "noselect", "fuzzy", "nosort" } -- Use fuzzy matching for built-in completion
 
 -- Folds options
 vim.opt.foldmethod     = "indent" -- Set "indent" folding method
