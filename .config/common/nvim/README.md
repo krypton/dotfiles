@@ -5,9 +5,10 @@ Modern Neovim config using vim.pack (Neovim built-in plugin manager).
 ## Requirements
 
 - Neovim 0.12+
-- ripgrep (for grep searches)
+- ripgrep (`rg`) - grep searches
+- fd (`fd`) - file search
 - git
-- Node.js (for Copilot)
+- tree-sitter CLI - parser installation
 - Language-specific tools (see below)
 
 ## Installation
@@ -25,14 +26,13 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 
 ### Completion
 
-- [blink.cmp](https://github.com/saghen/blink.cmp) - Modern async completion
-- [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot) - GitHub Copilot integration for blink
+- [blink.cmp](https://github.com/saghen/blink.cmp) - Modern async completion with ghost text
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippet collection
 
 ### AI
 
-- [copilot.lua](https://github.com/zbirenbaum/copilot.lua) - GitHub Copilot
 - [opencode.nvim](https://github.com/NickvanDyke/opencode.nvim) - OpenCode AI assistant
+- GitHub Copilot via native LSP (`copilot-language-server`, installed via Mason)
 
 ### LSP & Diagnostics
 
@@ -49,7 +49,7 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 
 ### File Navigation
 
-- [snacks.nvim](https://github.com/folke/snacks.nvim) - File picker, grep, buffers
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.pick, mini.extra) - Fuzzy finder, grep, buffers
 - [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.files) - File explorer
 - [grapple.nvim](https://github.com/cbochs/grapple.nvim) - File tagging (opencode dependency)
 
@@ -62,7 +62,7 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 ### UI
 
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Tokyo Night colorscheme
-- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.statusline, mini.notify, mini.indentscope)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.statusline, mini.notify, mini.indentscope, mini.pick, mini.extra, mini.ai, mini.icons, mini.files)
 - [which-key.nvim](https://github.com/folke/which-key.nvim) - Keybinding helper
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Code context display
 
@@ -74,7 +74,7 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 
 ### Utility
 
-- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.ai, mini.icons, mini.files)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) - see UI section above for full module list
 - [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - Context-aware comments
 
 ## Language Servers

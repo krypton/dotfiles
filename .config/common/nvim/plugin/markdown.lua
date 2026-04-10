@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("FileType", {
 				end,
 
 				picker = {
-					name = "snacks.pick",
+					name = "mini.pick",
 				},
 			})
 		end)
