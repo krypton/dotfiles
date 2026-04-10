@@ -7,6 +7,7 @@ Modern Neovim config using vim.pack (Neovim built-in plugin manager).
 - Neovim 0.12+
 - ripgrep (`rg`) - grep searches
 - fd (`fd`) - file search
+- fzf (`fzf`) - fuzzy finder
 - git
 - tree-sitter CLI - parser installation
 - Language-specific tools (see below)
@@ -21,6 +22,12 @@ nvim
 ```
 
 Plugins auto-install on first launch. Press `a` to confirm all installations.
+
+Install system dependencies (macOS):
+
+```sh
+brew install fzf fd ripgrep tree-sitter
+```
 
 ## Plugins
 
@@ -49,7 +56,7 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 
 ### File Navigation
 
-- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.pick, mini.extra) - Fuzzy finder, grep, buffers
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua) - Fuzzy finder, grep, buffers (backed by fzf)
 - [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.files) - File explorer
 - [grapple.nvim](https://github.com/cbochs/grapple.nvim) - File tagging (opencode dependency)
 
@@ -62,7 +69,7 @@ Plugins auto-install on first launch. Press `a` to confirm all installations.
 ### UI
 
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Tokyo Night colorscheme
-- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.statusline, mini.notify, mini.indentscope, mini.pick, mini.extra, mini.ai, mini.icons, mini.files)
+- [mini.nvim](https://github.com/echasnovski/mini.nvim) (mini.statusline, mini.notify, mini.indentscope, mini.ai, mini.icons, mini.files)
 - [which-key.nvim](https://github.com/folke/which-key.nvim) - Keybinding helper
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) - Code context display
 
@@ -104,13 +111,13 @@ Leader key: `<Space>`
 ### General
 
 - `<Space>pv` - File explorer (MiniFiles)
-- `<Space>sf` - Find files
-- `<Space>sg` - Find git files
-- `<Space>ss` - Grep search
-- `<Space>sb` - Find buffers
-- `<Space>sh` - Search help
-- `<Space>sc` - Grep word under cursor
-- `<Space>sr` - Resume last search
+- `<Space>sf` - Find files (fzf-lua)
+- `<Space>sg` - Find git files (fzf-lua)
+- `<Space>ss` - Grep search (fzf-lua)
+- `<Space>sb` - Find buffers (fzf-lua)
+- `<Space>sh` - Search help (fzf-lua)
+- `<Space>sc` - Grep word under cursor (fzf-lua)
+- `<Space>sr` - Resume last search (fzf-lua)
 
 ### LSP
 
