@@ -75,34 +75,36 @@ require("mini.pick").setup({
 })
 require("mini.extra").setup()
 
--- Choose handler for rg output (file:line:col:content)
-local function grep_choose(item)
-	if not item then return end
-	local file, line, col = item:match("^([^:]+):(%d+):(%d+):")
-	if file then
-		vim.cmd.edit(file)
-		vim.api.nvim_win_set_cursor(0, { tonumber(line), tonumber(col) - 1 })
-	end
+-- Reuse mini.pick's own show-with-icons logic for custom pickers
+local show_with_icons = function(buf_id, items, query)
+	MiniPick.default_show(buf_id, items, query, { show_icons = true })
 end
+
+-- rg base args: null-char field separator so mini.pick parses path/lnum/col natively
+-- and displays items as "file│line│col│content" with correct file icons
+local rg_base = {
+	"rg", "--column", "--line-number", "--no-heading",
+	"--field-match-separator", "\\x00",
+	"--color=never", "--hidden", "--glob", "!.git",
+}
 
 -- Live grep with --hidden using set_picker_items_from_cli + querytick to avoid stale updates
 local function grep_live_hidden()
-	local base = { "rg", "--column", "--line-number", "--no-heading", "--color=never", "--hidden", "--glob", "!.git" }
 	MiniPick.start({
 		source = {
-			name    = "Grep",
-			items   = {},
-			match   = function(_, _, query)
+			name  = "Grep",
+			items = {},
+			show  = show_with_icons,
+			match = function(_, _, query)
 				local querytick = MiniPick.get_picker_state().querytick
 				local query_str = table.concat(query)
 				MiniPick.set_picker_match_inds({})
 				if query_str == "" then return end
-				local cmd = vim.list_extend(vim.deepcopy(base), { query_str })
+				local cmd = vim.list_extend(vim.deepcopy(rg_base), { query_str })
 				MiniPick.set_picker_items_from_cli(cmd, {
 					set_items_opts = { do_match = false, querytick = querytick },
 				})
 			end,
-			choose  = grep_choose,
 		},
 	})
 end
@@ -110,22 +112,29 @@ end
 vim.keymap.set("n", "<leader>sf", function()
 	MiniPick.start({
 		source = {
-			name   = "Files",
-			items  = vim.schedule_wrap(function()
+			name  = "Files",
+			items = vim.schedule_wrap(function()
 				MiniPick.set_picker_items_from_cli({ "fd", "--type", "f", "--hidden", "--exclude", ".git" })
 			end),
+			show  = show_with_icons,
 		},
 	})
 end, { desc = "[S]earch [f]iles in cwd" })
-vim.keymap.set("n", "<leader>ss", grep_live_hidden,                                                    { desc = "[S]earch [s]tring in cwd" })
+vim.keymap.set("n", "<leader>ss", grep_live_hidden, { desc = "[S]earch [s]tring in cwd" })
 vim.keymap.set("n", "<leader>sc", function()
 	local word = vim.fn.expand("<cword>")
-	local cmd  = { "rg", "--column", "--line-number", "--no-heading", "--color=never", "--hidden", "--glob", "!.git", word }
+	local cmd  = vim.list_extend(vim.deepcopy(rg_base), { word })
 	MiniPick.start({
-		source = { name = "Grep: " .. word, items = vim.fn.systemlist(cmd), choose = grep_choose },
+		source = {
+			name  = "Grep: " .. word,
+			items = vim.schedule_wrap(function()
+				MiniPick.set_picker_items_from_cli(cmd)
+			end),
+			show  = show_with_icons,
+		},
 	})
-end,                                                                                                   { desc = "[S]earch string under [c]ursor in cwd" })
-vim.keymap.set("n", "<leader>sb", function() MiniPick.builtin.buffers() end,                          { desc = "[S]earch existing [b]uffers" })
-vim.keymap.set("n", "<leader>sg", function() MiniExtra.pickers.git_files() end,                       { desc = "[S]earch [g]it files" })
-vim.keymap.set("n", "<leader>sh", function() MiniPick.builtin.help() end,                             { desc = "[S]earch [h]elp" })
-vim.keymap.set("n", "<leader>sr", function() MiniPick.builtin.resume() end,                           { desc = "[S]earch [r]esume" })
+end, { desc = "[S]earch string under [c]ursor in cwd" })
+vim.keymap.set("n", "<leader>sb", function() MiniPick.builtin.buffers() end, { desc = "[S]earch existing [b]uffers" })
+vim.keymap.set("n", "<leader>sg", function() MiniExtra.pickers.git_files() end, { desc = "[S]earch [g]it files" })
+vim.keymap.set("n", "<leader>sh", function() MiniPick.builtin.help() end, { desc = "[S]earch [h]elp" })
+vim.keymap.set("n", "<leader>sr", function() MiniPick.builtin.resume() end, { desc = "[S]earch [r]esume" })
