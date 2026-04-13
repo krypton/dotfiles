@@ -42,7 +42,7 @@ done
 case "$OS" in
   Linux)
     echo "🔧 Stowing Linux-specific scripts..."
-    for script in monitor.sh wofi-launcher.sh screenshot.sh; do
+    for script in hyprlock-random.sh monitor.sh wofi-launcher.sh screenshot.sh; do
       [ -f "$DOTFILES_DIR/.local/bin/linux/$script" ] && \
         ln -sf "$DOTFILES_DIR/.local/bin/linux/$script" "$TARGET_DIR/.local/bin/$script" 2>/dev/null || true
     done
