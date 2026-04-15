@@ -32,6 +32,7 @@ fpath=($ZDOTDIR/external $fpath)
 # Load brew zsh completions
 if type brew &>/dev/null; then
   fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+  fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
 fi
 
 autoload -Uz compinit && compinit
@@ -162,6 +163,7 @@ function clear-screen-and-scrollback() {
   zle redisplay
 }
 zle -N clear-screen-and-scrollback
+# Ctrl+X, Ctrl+T to clear screen and scrollback
 bindkey '^X^T' clear-screen-and-scrollback
 
 # Copy current command buffer to clipboard
@@ -175,4 +177,5 @@ function copy-buffer-to-clipboard() {
   zle -M "Copied to clipboard"
 }
 zle -N copy-buffer-to-clipboard
+# Ctrl+X, Ctrl+Y to copy command buffer to clipboard
 bindkey '^X^Y' copy-buffer-to-clipboard
