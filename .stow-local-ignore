@@ -2,9 +2,13 @@
 .DS_Store
 README.md
 INSTALL.md
+SYMLINK_MIGRATION.md
 .gitmodules
 stow-install.sh
+.gitignore
 
-# Ignore OS-specific directories
-^/\.config/linux
-^/\.local/bin/linux
+# .config and .local are stowed separately (granular, per-app) earlier in
+# stow-install.sh -- excluded here so the root-level stow only links the
+# true root dotfiles (.gitconfig, .zshenv, .XCompose, etc.)
+^/\.config$
+^/\.local$

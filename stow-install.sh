@@ -49,4 +49,8 @@ case "$OS" in
     ;;
 esac
 
+echo "🏠 Stowing root dotfiles..."
+cd "$DOTFILES_DIR"
+stow -t "$TARGET_DIR" .
+
 echo "✅ Stow installation complete for $OS"
