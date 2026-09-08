@@ -31,6 +31,7 @@ esac
 
 # Stow scripts from .local/bin (only the files, not subdirectories)
 echo "🔧 Stowing scripts..."
+mkdir -p "$TARGET_DIR/.local/bin"
 cd "$DOTFILES_DIR"
 # Stow only the cross-platform scripts by targeting individual files
 for script in tmux-sessionizer tmux-cht.sh install-neovim.sh; do
