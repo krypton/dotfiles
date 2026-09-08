@@ -49,6 +49,7 @@ zsh              # Shell (required)
 zsh-autosuggestions      # Zsh plugin
 zsh-history-substring-search  # Zsh plugin
 zsh-syntax-highlighting        # Zsh plugin
+zsh-completions   # Zsh plugin for enhanced completions
 ```
 
 ### macOS Specific
@@ -64,6 +65,7 @@ brew install qtpass             # Password manager GUI
 ```
 
 **Notes for macOS:**
+
 - `skhd` and `yabai` are not configured in this dotfiles (Hyprland is Linux-only)
 - Only install if you plan to use them separately
 - macOS-specific configs can be added to `.config/macos/` when needed
@@ -90,6 +92,7 @@ sudo pacman -S uwsm              # Universal Wayland Session Manager
 ```
 
 **For other Linux distributions:**
+
 - Ubuntu/Debian: Use `apt`
 - Fedora: Use `dnf`
 - openSUSE: Use `zypper`
@@ -104,7 +107,7 @@ brew install bat eza fd fzf git git-delta go jq lazygit neovim node rbenv
 brew install ripgrep stow tldr tmux tree xmlstarlet yazi zoxide zsh
 
 # Zsh plugins
-brew install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+brew install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-completions
 
 # Optional: macOS window management (not configured in dotfiles)
 brew install skhd yabai
@@ -141,7 +144,7 @@ sudo pacman -S bat eza fd fzf git git-delta go jq lazygit neovim nodejs
 sudo pacman -S ripgrep stow tldr tmux tree xmlstarlet yazi zoxide zsh
 
 # Zsh plugins
-sudo pacman -S zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+sudo pacman -S zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-completions
 
 # Linux/Wayland specific
 sudo pacman -S hyprland waybar wofi mako hypridle hyprlock hyprpaper swayosd zathura uwsm
@@ -161,7 +164,7 @@ sudo dnf install bat fd-find fzf git git-delta golang jq lazygit neovim nodejs
 sudo dnf install ripgrep stow tldr tmux tree xmlstarlet yazi zoxide zsh
 
 # Zsh plugins
-sudo dnf install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+sudo dnf install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-completions
 
 # Linux/Wayland specific
 sudo dnf install hyprland waybar wofi mako hypridle hyprlock hyprpaper swayosd zathura
@@ -222,18 +225,22 @@ systemctl --user enable --now hypridle.service
 ## Troubleshooting
 
 ### Command not found errors
+
 - Ensure `.local/bin/` is in your PATH (check `.zshenv`)
 - Make sure scripts are executable: `chmod +x ~/.local/bin/*`
 
 ### Stow conflicts
+
 - Remove old symlinks first (see SYMLINK_MIGRATION.md)
 - Ensure `.stow-local-ignore` is properly configured
 
 ### Missing dependencies on Linux
+
 - Update your package manager: `sudo pacman -Syu` (Arch) or `sudo apt update && sudo apt upgrade` (Debian)
 - Some packages may have different names on different distributions
 
 ### macOS specific issues
+
 - If Homebrew packages aren't found, run `brew update && brew upgrade`
 - Check that Homebrew is properly installed: `brew doctor`
 
@@ -263,22 +270,26 @@ wl-clipboard # Clipboard manager
 ### Language-Specific Tools
 
 **Python:**
+
 ```bash
 pip install black flake8 mypy  # Python tools
 ```
 
 **Ruby:**
+
 ```bash
 # Configured in .rubocop.yml
 gem install rubocop
 ```
 
 **Go:**
+
 ```bash
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 ```
 
 **JavaScript/Node:**
+
 ```bash
 npm install -g prettier eslint typescript
 ```
