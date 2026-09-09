@@ -59,6 +59,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Clear 'modified' when an unnamed scratch buffer's content is emptied back
+-- out. Otherwise the buffer stays "modified" even with zero content, which
+-- can block pickers (fzf-lua, mini.files) from switching away from it.
+vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "InsertLeave" }, {
+	callback = function(args)
+		local buf = args.buf
+		if vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) == "" then
+			local line_count = vim.api.nvim_buf_line_count(buf)
+			local first_line = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1]
+			if line_count == 1 and first_line == "" then
+				vim.bo[buf].modified = false
+			end
+		end
+	end,
+})
+
 -- Open help in vertical split
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
