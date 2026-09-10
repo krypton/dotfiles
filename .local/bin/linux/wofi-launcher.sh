@@ -22,7 +22,13 @@ case $MODE in
 
         if [ -n "$WINDOW" ]; then
             CLASS=$(echo "$WINDOW" | grep -oP '\(\K[^)]+')
-            hyprctl dispatch focuswindow "class:$CLASS"
+            # hyprctl dispatch <string args> is rejected under the Lua config
+            # ("Use eval") - fall back to hyprctl eval + hl.dsp.focus when active.
+            if [ -f "$HOME/.config/hypr/hyprland.lua" ]; then
+                hyprctl eval "hl.dispatch(hl.dsp.focus({window='class:$CLASS'}))"
+            else
+                hyprctl dispatch focuswindow "class:$CLASS"
+            fi
         fi
         ;;
     run)
