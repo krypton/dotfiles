@@ -1,0 +1,11 @@
+[Unit]
+Description=Unmute internal speaker/mic hardware and force it as default audio sink
+After=wireplumber.service
+BindsTo=wireplumber.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/fix-internal-audio.sh
+
+[Install]
+WantedBy=wireplumber.service
