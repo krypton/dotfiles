@@ -1,18 +1,26 @@
 #!/bin/bash
 
-DP1_CONNECTED=$(hyprctl monitors | grep -c "DP-1")
+MONITORS_JSON=$(hyprctl monitors all -j)
+
+# Native/preferred mode as reported by the panel's EDID, e.g. "1920x1200@60"
+preferred_mode() {
+    echo "$MONITORS_JSON" | jq -r --arg name "$1" \
+        '.[] | select(.name == $name) | .availableModes[0]' | awk -F@ '{printf "%s@%.0f\n", $1, $2}'
+}
+
+DP1_CONNECTED=$(echo "$MONITORS_JSON" | jq '[.[] | select(.name == "DP-1")] | length')
 LID=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
 
 if [ "$DP1_CONNECTED" -gt 0 ]; then
     # BenQ connected - set it as main
-    hyprctl keyword monitor "DP-1,3840x2560@60,0x0,1.666667"
+    hyprctl keyword monitor "DP-1,$(preferred_mode DP-1),0x0,1.666667"
 
     if [ "$LID" = "closed" ]; then
         # Lid closed - only BenQ
         hyprctl keyword monitor "eDP-1,disable"
     else
         # Both monitors active
-        hyprctl keyword monitor "eDP-1,1920x1080@60,2304x677,1"
+        hyprctl keyword monitor "eDP-1,$(preferred_mode eDP-1),2304x677,1"
     fi
 
     # Move workspaces 1-5 back to BenQ
@@ -21,5 +29,5 @@ if [ "$DP1_CONNECTED" -gt 0 ]; then
     done
 else
     # BenQ disconnected - everything on laptop
-    hyprctl keyword monitor "eDP-1,1920x1080@60,0x0,1"
+    hyprctl keyword monitor "eDP-1,$(preferred_mode eDP-1),0x0,1"
 fi
