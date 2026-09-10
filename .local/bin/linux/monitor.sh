@@ -13,7 +13,10 @@ set_monitor() {
         if [ "$2" = "disable" ]; then
             hyprctl eval "hl.monitor({output='$1', disabled=true})"
         else
-            hyprctl eval "hl.monitor({output='$1', mode='$2', position='$3', scale=$4})"
+            # disabled=false must be explicit - hl.monitor() only sets the
+            # fields it's given, so omitting it leaves a monitor previously
+            # disabled (e.g. by the lid-closed branch above) disabled forever.
+            hyprctl eval "hl.monitor({output='$1', mode='$2', position='$3', scale=$4, disabled=false})"
         fi
     else
         if [ "$2" = "disable" ]; then
