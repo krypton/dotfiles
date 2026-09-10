@@ -3,3 +3,7 @@
 .config/lazygit/state.yml
 .zcompdump*
 .zsh_history*
+
+# systemd --user generated state (enable-time symlink dirs, app-generated units)
+.config/linux/systemd/user/*.target.wants/
+.config/linux/systemd/user/openlogi-agent.service
