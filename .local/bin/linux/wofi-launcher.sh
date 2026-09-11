@@ -6,6 +6,14 @@
 
 MODE=${1:-drun}
 
+# wofi has no built-in single-instance/toggle support, so each keypress
+# would otherwise stack a new window on top of one already open. Treat any
+# running instance as "close it" instead of launching another.
+if pgrep -x wofi >/dev/null; then
+    pkill -x wofi
+    exit 0
+fi
+
 case $MODE in
     drun)
         wofi --show drun \
