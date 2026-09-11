@@ -173,9 +173,12 @@ hl.config({
 })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
-hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+-- "Smart gaps" / "No gaps when only" - keep a small top gap even here so a
+-- lone window doesn't sit flush against the waybar pills, without bringing
+-- back gaps on the other sides.
+local SINGLE_WINDOW_GAPS_OUT = { top = 10, right = 0, bottom = 0, left = 0 }
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = SINGLE_WINDOW_GAPS_OUT, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]",   gaps_out = SINGLE_WINDOW_GAPS_OUT, gaps_in = 0 })
 hl.window_rule({
     name  = "no-gaps-wtv1",
     match = { float = false, workspace = "w[tv1]" },
@@ -269,6 +272,9 @@ hl.bind(mainMod .. " + S",        hl.dsp.exec_cmd("$HOME/.local/bin/screenshot.s
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("$HOME/.local/bin/screenshot.sh region"))
 hl.bind(mainMod .. " + CTRL + S",  hl.dsp.exec_cmd("$HOME/.local/bin/screenshot.sh window"))
 
+-- Notifications: dismiss the whole mako stack without focusing any app
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("makoctl dismiss --all"))
+
 -- Move focus with mainMod + HJKL
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
@@ -324,6 +330,10 @@ hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+-- Move the active workspace to the next/previous monitor
+hl.bind(mainMod .. " + CTRL + Right", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + CTRL + Left",  hl.dsp.workspace.move({ monitor = "-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
