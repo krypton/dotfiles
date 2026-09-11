@@ -29,7 +29,10 @@ case $MODE in
                  --cache-file /dev/null)
 
         if [ -n "$WINDOW" ]; then
-            CLASS=$(echo "$WINDOW" | grep -oP '\(\K[^)]+')
+            # Titles can contain their own "(...)" (unread counts, "(feat. X)",
+            # etc.), so grab only the trailing "(class)" group we appended,
+            # not the first parenthesized match in the line.
+            CLASS=$(echo "$WINDOW" | grep -oP '\(\K[^()]+(?=\)$)')
             # hyprctl dispatch <string args> is rejected under the Lua config
             # ("Use eval") - fall back to hyprctl eval + hl.dsp.focus when active.
             if [ -f "$HOME/.config/hypr/hyprland.lua" ]; then
