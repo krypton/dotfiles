@@ -10,6 +10,13 @@ margin=10
 font=JetBrainsMono Nerd Font 11
 default-timeout=5000
 
+# Left-click still opens the app (invoke-default-action, mako's default).
+# Right-click dismisses without focusing anything (also mako's default).
+# Middle-click clears the whole stack, handy for the same reason.
+on-button-middle=dismiss-all
+
 [urgency=high]
 border-color=#ff757f
-default-timeout=0
+# Was 0 (never expires) - critical notifications used to pile up forever.
+# Give them a longer TTL instead so they still auto-clear.
+default-timeout=15000
